@@ -16,6 +16,17 @@ public class Sick extends Human {
 		  if(!mask)
 			  return PossibiltytoInfect;
 		  return PossibiltytoInfect/2;
+		  
+		  
+		  
+		
+		  
+		  
+		  
+		  
+		  
+		  
+		  
 	  }
 	
 }
