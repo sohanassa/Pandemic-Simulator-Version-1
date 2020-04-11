@@ -2,6 +2,8 @@ public class Sick extends Human {
 	private double possibilityToInfect;
 	
 	public Sick() {
+		
+	}
 
 	public Sick(double possibilityToInfect) {
 		this.possibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
