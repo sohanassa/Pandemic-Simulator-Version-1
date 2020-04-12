@@ -1,4 +1,6 @@
 
+import java.util.Random;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Grid {
@@ -8,6 +10,7 @@ public class Grid {
 	private Human[][] h;
 	private boolean[][] infectedSpace;
 	private int[][] timeStayedInSamePosition;
+	private static Random randomizer = new Random();
 
 	public Grid(Human[][] h) {
 		this.length=h.length;
@@ -71,13 +74,15 @@ public class Grid {
 		for(int k=i-1;k<i+2;k++) {
 			for(int c=j-1;c<j+2;c++) {
 				if(getHumanAt(k,c)!=null&&(k!=i&&c!=j)&&(getHumanAt(k,c).getClass()==Sick.class))
-						return true;
+						if(getHumanAt(k,c).getPossibilityToInfect()<randomizer.nextInt(101)&&getHumanAt(i,j).getPossibilityOfInfection()<randomizer.nextInt(101))
+							return true;
 			}
 			
 		}
 		return false;
 		
-	} 
+		
+	}
 	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
