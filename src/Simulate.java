@@ -66,7 +66,9 @@ public class Simulate {
 	}
 	
     private Sick makeSick(Healthy he) {
-    	return new Sick(he.getMask(),humanInfP);
+    	if(!he.getImmune())
+    	   return new Sick(he.getMask(),humanInfP);
+    	return null;
     }
     
     
