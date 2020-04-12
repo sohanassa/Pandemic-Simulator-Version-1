@@ -10,7 +10,7 @@ public class ReadFromUser {
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 	   do {
        try{
-	       System.out.println("COVID-19 SIMULATOR!");
+	       System.out.println("COVID-19 SIMULATOR! ");
 		   System.out.print("Give size of place (height width): ");
 		   h=in.nextInt();
 		   w=in.nextInt();
