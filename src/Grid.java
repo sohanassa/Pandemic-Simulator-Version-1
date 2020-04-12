@@ -6,11 +6,13 @@ public class Grid {
 	private int length;
 	private int width;
 	private Human[][] h;
+	private boolean[][] infectedSpace;
 
-	public Grid(int length,int width, Human[][] h) {
-		this.length=length;
-		this.width=width;
+	public Grid(Human[][] h) {
+		this.length=h.length;
+		this.width=h[0].length;
 		this.h=h;
+		this.infectedSpace = new boolean[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
@@ -23,6 +25,22 @@ public class Grid {
 	
 	public Human[][] getHuman2D(){
 		return h;
+	}
+	
+	public boolean getInfectedSpaceAt(int i, int j) {
+		return infectedSpace[i][j];
+	}
+	
+	public boolean[][] getInfectedSpace() {
+		return infectedSpace;
+	}
+	
+	public void setSafeSpaceAt(int i, int j) {
+		infectedSpace[i][j]=false;
+	}
+	
+	public void setDangerousSpaceAt(int i, int j) {
+		infectedSpace[i][j]=true;
 	}
 	
 	public void move(int Istart, int Jstart, int Idest, int Jdest) {
