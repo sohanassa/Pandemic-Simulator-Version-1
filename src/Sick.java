@@ -6,6 +6,7 @@ public class Sick extends Human {
 		this.PossibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
 	}
 	
+	
 	public double getPossibilityOfInfection() {
 		return 0;
 	}
