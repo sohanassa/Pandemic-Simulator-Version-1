@@ -13,6 +13,18 @@ public class Grid {
 		this.h=h;
 	}
 	
+	public void setHuman(Human hum, int i, int j) {
+		h[i][j]=hum;
+	}
+	
+	public Human getHumanAt(int i, int j) {
+		return h[i][j];
+	}
+	
+	public Human[][] getHuman2D(){
+		return h;
+	}
+	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
          StdDraw.setYscale(-1,width+1);

@@ -60,6 +60,9 @@ public class Simulate {
 		return pin;
 	}
 	
+    private void setSick(int i, int j) {
+    	
+    }
 	public void runSimulation() {
 		Human[][] h=make2DHuman(makeHumans());
 		

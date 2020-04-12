@@ -5,6 +5,7 @@ public class Sick extends Human {
 		super(mask);
 		this.PossibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
 	}
+	
 	public double getPossibilityOfInfection() {
 		return 0;
 	}

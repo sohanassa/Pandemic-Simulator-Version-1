@@ -1,4 +1,4 @@
-public abstract class Human {
+public class Human {
   private boolean mask;
   
  
@@ -10,9 +10,13 @@ public abstract class Human {
   public boolean getMask() {
 	  return this.mask;
   }
-  abstract public double getPossibilityOfInfection();
+  public double getPossibilityOfInfection() {
+	  return 0;
+  }
  
-  abstract public double getPossibilityToInfect();
+  public double getPossibilityToInfect() {
+	  return 0;
+  }
   
 
 	public static void main(String[] args) {
