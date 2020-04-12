@@ -25,5 +25,6 @@ public class Human {
 		  S+="not waring a mask ";
 		  
 	  return S;
+	  
   }
 }
