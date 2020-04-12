@@ -7,12 +7,14 @@ public class Grid {
 	private int width;
 	private Human[][] h;
 	private boolean[][] infectedSpace;
+	private int[][] timeStayedInSamePosition;
 
 	public Grid(Human[][] h) {
 		this.length=h.length;
 		this.width=h[0].length;
 		this.h=h;
 		this.infectedSpace = new boolean[length][width];
+		this.timeStayedInSamePosition=new int[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
@@ -43,9 +45,27 @@ public class Grid {
 		infectedSpace[i][j]=true;
 	}
 	
+	public void setAllOccupiedSpacesDangerous() {
+		for(int i=0; i<length; i++)
+			for(int j=0; j<width; j++)
+				if(h[i][j]!=null) {
+					infectedSpace[i][j]=true;
+				}
+	}
+	
+	public void setTimeStayedInSamePositionAt(int i, int j) {
+		timeStayedInSamePosition[i][j]++;
+	}
+	
+	public int getTimeStayedInSamePositionAt(int i, int j) {
+		return timeStayedInSamePosition[i][j];
+	}
+	
 	public void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
+		timeStayedInSamePosition[Idest][Jdest]=0;
+		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
 	
 	public void drawGrid() {
