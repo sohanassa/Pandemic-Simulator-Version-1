@@ -3,8 +3,8 @@ public class Healthy extends Human {
   private double PossibilityofInfectiion;
   
   
-	public Healthy(boolean immune, boolean mask, double Pmove,double PossibilityofInfectiion) {
-		super(mask,Pmove);
+	public Healthy(boolean immune, boolean mask, double PossibilityofInfectiion) {
+		super(mask);
 		this.immune=immune;
 		this.PossibilityofInfectiion=calcPossibilityofInfection(PossibilityofInfectiion);
 	}

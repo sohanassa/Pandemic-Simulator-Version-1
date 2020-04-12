@@ -1,19 +1,14 @@
 public abstract class Human {
   private boolean mask;
-  private double pmove;
   
  
-  public Human(boolean mask,double pmove) {
+  public Human(boolean mask) {
 	  this.mask=mask;
-	  this.pmove=pmove;
 	  
   }
   
   public boolean getMask() {
 	  return this.mask;
-  }
-  public double getPmove() {
-	  return this.pmove;
   }
   abstract public double getPossibilityOfInfection();
  

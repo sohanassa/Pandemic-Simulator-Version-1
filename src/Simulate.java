@@ -33,9 +33,11 @@ public class Simulate {
 			boolean mask= randomizer.nextInt(101)<=maskUsePers;
 			
 			if(i<initialPop)
-				h[i]=new Sick(mask,movingP,humanInfP);
-			else
-				h[i]=new Healthy()
+				h[i]=new Sick(mask, humanInfP);
+			else {
+				boolean im= randomizer.nextInt(101)<=immunePers;
+				h[i]=new Healthy(im, mask, humanInfP);
+			}
 		}
 	}
 	

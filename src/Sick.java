@@ -1,8 +1,8 @@
 public class Sick extends Human {
 	private double PossibilityToInfect;
 	
-	public Sick(boolean mask, double Pmove, double possibilityToInfect) {
-		super(mask,Pmove);
+	public Sick(boolean mask, double possibilityToInfect) {
+		super(mask);
 		this.PossibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
 	}
 	public double getPossibilityOfInfection() {

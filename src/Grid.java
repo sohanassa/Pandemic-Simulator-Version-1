@@ -5,12 +5,10 @@ public class Grid {
 
 	private int length;
 	private int width;
-	private Human[] h;
 	
-	public Grid(int length,int width, Human[] h) {
+	public Grid(int length,int width) {
 		this.length=length;
 		this.width=width;
-		this.h=h;
 	}
 	
 	public void drawGrid() {
