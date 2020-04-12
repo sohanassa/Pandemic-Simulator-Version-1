@@ -13,9 +13,6 @@ public class ReadFromUser {
 		System.out.print("Give number of people: ");
 		int people = in.nextInt();
 		
-		System.out.print("Give number of infected people: ");
-		int infected = in.nextInt();
-		
 		System.out.print("Give time of simmulation in minuts: ");
 		int time = in.nextInt();
 		
@@ -31,13 +28,16 @@ public class ReadFromUser {
 		System.out.print("Give possibility of infecting a space (between 0-1): ");
 		double infSpaceP = in.nextDouble();
 		
+		System.out.print("Give possibility of getting infected froma a space (between 0-1): ");
+		double spaceInfHuman = in.nextDouble();
+		
 		System.out.print("Give percentage of mask use (between 0-100): ");
 		int maskPers = in.nextInt();
 		
 		System.out.print("Give percentage of immune peope (between 0-100): ");
 		int immunePers = in.nextInt();
 		
-		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,movingP,h,w,people,infected,timeSpace,time);
+		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time);
 		s.runSimulation();
 	}
 
