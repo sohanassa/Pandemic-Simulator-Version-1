@@ -48,7 +48,7 @@ public class Grid {
 	public void setAllOccupiedSpacesDangerous() {
 		for(int i=0; i<length; i++)
 			for(int j=0; j<width; j++)
-				if(h[i][j]!=null) {
+				if(h[i][j]!=null && (h[i][j].getClass()==Sick.class)) {
 					infectedSpace[i][j]=true;
 				}
 	}

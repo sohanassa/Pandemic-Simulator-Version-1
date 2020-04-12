@@ -61,7 +61,7 @@ public class Simulate {
 	}
 	
     private int[] randomPos() {
-		int[] pin= {randomizer.nextInt(height+1),randomizer.nextInt(width+1)};
+		int[] pin= {randomizer.nextInt(height),randomizer.nextInt(width)};
 		return pin;
 	}
 	
