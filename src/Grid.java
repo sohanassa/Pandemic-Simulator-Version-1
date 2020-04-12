@@ -67,6 +67,16 @@ public class Grid {
 		timeStayedInSamePosition[Idest][Jdest]=0;
 		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
+	public boolean CheckForInfected(int i,int j) {
+		for(int k=i-1;k<i+2;k++) {
+			for(int c=j-1;c<j+2;c++) {
+				if(getHumanAt(i,j)!=null&&(k!=i&&c!=j)&&(getHumanAt(i,j).getClass()==Sick.class))
+						return true;
+			}
+		}
+		return false;
+		
+	} 
 	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
