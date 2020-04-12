@@ -5,10 +5,12 @@ public class Grid {
 
 	private int length;
 	private int width;
-	
-	public Grid(int length,int width) {
+	private Human[][] h;
+
+	public Grid(int length,int width, Human[][] h) {
 		this.length=length;
 		this.width=width;
+		this.h=h;
 	}
 	
 	public void drawGrid() {
@@ -21,12 +23,6 @@ public class Grid {
    		     StdDraw.line(0.0,0.0+i,0.0+length,0.0+i);
    		     StdDraw.line(0.0+i,0.0,0.0+i,0.0+width);
           }
-	}
-	
-	public static void main(String[] args) {
-		Grid a=new Grid(10,10);
-		a.drawGrid();
-		
 	}
 }
 

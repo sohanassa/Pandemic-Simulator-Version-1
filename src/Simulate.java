@@ -28,6 +28,7 @@ public class Simulate {
 	}
 	
 	private Human[] makeHumans() {
+		
 		Human[] h=new Human[population];
 		for(int i=0; i<population; i++) {
 			boolean mask= randomizer.nextInt(101)<=maskUsePers;
@@ -39,19 +40,34 @@ public class Simulate {
 				h[i]=new Healthy(im, mask, humanInfP);
 			}
 		}
+		return h;
 	}
 	
+	private Human[][] make2DHuman(Human[] human) {
+		Human[][] h = new Human[height][width];
+		for(int i=0; i<population; i++) {
+			int[] pin=randomPos();
+			while(h[pin[0]][pin[1]]!=null) {
+				pin=randomPos();
+			}
+			h[pin[0]][pin[1]]=human[i];
+		}
+		return h;
+	}
+	
+    private int[] randomPos() {
+		int[] pin= {randomizer.nextInt(height+1),randomizer.nextInt(width+1)};
+		return pin;
+	}
 	
 	public void runSimulation() {
-		Human[] h=makeHumans();
+		Human[][] h=make2DHuman(makeHumans());
 		
-		//Grid g = new Grid(height,width);
+		Grid g = new Grid(height,width,h);
+		
 	}
 	
-	private void randomPos() {
-		
-		
-	}
+	
 		
 }
 
