@@ -74,6 +74,7 @@ public class Simulate {
 	}
 	
 	private void runOneMinute(Grid g) {
+		g.setAllOccupiedSpacesDangerous();
 		
 	}
 	
