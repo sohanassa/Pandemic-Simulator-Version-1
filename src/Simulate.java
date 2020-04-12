@@ -15,6 +15,8 @@ public class Simulate {
 	private static int time;
 	private static Random randomizer = new Random();
 	
+	
+	
 	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timesquare, int time){
 		maskUsePers=mask;
 		immunePers=immune;
