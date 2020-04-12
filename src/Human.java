@@ -9,7 +9,6 @@ public abstract class Human {
 	  
   }
   
-  
   public boolean getmask() {
 	  return this.mask;
   }
