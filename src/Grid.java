@@ -71,15 +71,18 @@ public class Grid {
 		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
 	public boolean CheckForInfected(int i,int j) {
+		boolean gotSick=false;
 		for(int k=i-1;k<i+2;k++) {
 			for(int c=j-1;c<j+2;c++) {
-				if(getHumanAt(k,c)!=null&&(k!=i&&c!=j)&&(getHumanAt(k,c).getClass()==Sick.class))
-						if(getHumanAt(k,c).getPossibilityToInfect()<randomizer.nextInt(101)&&getHumanAt(i,j).getPossibilityOfInfection()<randomizer.nextInt(101))
-							return true;
+				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) {
+					int random = randomizer.nextInt(100);
+						if(getHumanAt(k,c).getPossibilityToInfect()>=random && getHumanAt(i,j).getPossibilityOfInfection()>=random)
+							gotSick=true;
+				}
 			}
 			
 		}
-		return false;
+		return gotSick;
 		
 		
 	}
