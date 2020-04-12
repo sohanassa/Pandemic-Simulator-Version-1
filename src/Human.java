@@ -17,4 +17,13 @@ public class Human {
   public double getPossibilityToInfect() {
 	  return 0;
   }
+  public String toString() {
+	  String S="Human is ";
+	  if(mask)
+		  S+="wearing a mask ";
+	  else
+		  S+="not waring a mask ";
+		  
+	  return S;
+  }
 }
