@@ -69,6 +69,9 @@ public class Simulate {
     	return new Sick(he.getMask(),humanInfP);
     }
     
+    
+	
+    
 	public void runSimulation() {
 		Human[][] h=make2DHuman(makeHumans());
 		Grid g = new Grid(h);

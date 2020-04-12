@@ -86,6 +86,7 @@ public class Grid {
 	}
 	
 	
+	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
          StdDraw.setYscale(-1,width+1);
