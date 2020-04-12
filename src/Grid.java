@@ -82,7 +82,9 @@ public class Grid {
 		return false;
 		
 		
+		
 	}
+	
 	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
