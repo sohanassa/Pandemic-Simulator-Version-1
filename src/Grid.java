@@ -25,6 +25,11 @@ public class Grid {
 		return h;
 	}
 	
+	public void move(int Istart, int Jstart, int Idest, int Jdest) {
+		h[Idest][Jdest]=h[Istart][Jstart];
+		h[Istart][Jstart]=null;
+	}
+	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
          StdDraw.setYscale(-1,width+1);

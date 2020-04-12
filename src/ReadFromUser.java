@@ -4,6 +4,7 @@ public class ReadFromUser {
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("COVID-19 SIMULATOR!");
 		System.out.print("Give size of place (height width): ");
 		int h=in.nextInt();
@@ -12,8 +13,14 @@ public class ReadFromUser {
 		System.out.print("Give number of people: ");
 		int people = in.nextInt();
 		
+		System.out.print("Give number of infected people: ");
+		int infected = in.nextInt();
+		
 		System.out.print("Give time of simmulation in minuts: ");
 		int time = in.nextInt();
+		
+		System.out.print("Give time for a space to be safe: ");
+		int timeSpace = in.nextInt();
 		
 		System.out.print("Give possibility of moving (between 0-1): ");
 		double movingP = in.nextDouble();
@@ -30,6 +37,8 @@ public class ReadFromUser {
 		System.out.print("Give percentage of immune peope (between 0-100): ");
 		int immunePers = in.nextInt();
 		
+		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,movingP,h,w,people,infected,timeSpace,time);
+		s.runSimulation();
 	}
 
 }

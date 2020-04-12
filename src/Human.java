@@ -17,13 +17,4 @@ public class Human {
   public double getPossibilityToInfect() {
 	  return 0;
   }
-  
-
-	public static void main(String[] args) {
-		// TODO Auto-generat  ed method stub
-
-	}
-	
-	
-
 }

@@ -12,9 +12,10 @@ public class Simulate {
 	private static int population;
 	private static int initialPop;
 	private static int timeForSquareToBeSafe;
+	private static int time;
 	private static Random randomizer = new Random();
 	
-	public Simulate(int mask, int immune, double humanInf, double spaceInf, double moving, int h, int w, int pop, int initialpop, int timesquare){
+	public Simulate(int mask, int immune, double humanInf, double spaceInf, double moving, int h, int w, int pop, int initialpop, int timesquare, int time){
 		maskUsePers=mask;
 		immunePers=immune;
 		humanInfP=humanInf;
@@ -25,6 +26,7 @@ public class Simulate {
 		population=pop;
 		initialPop=initialpop;
 		timeForSquareToBeSafe=timesquare;
+		this.time=time;
 	}
 	
 	private Human[] makeHumans() {
@@ -60,17 +62,26 @@ public class Simulate {
 		return pin;
 	}
 	
-    private void setSick(int i, int j) {
-    	
+    private Sick makeSick(Healthy he) {
+    	return new Sick(he.getMask(),humanInfP);
     }
+    
 	public void runSimulation() {
 		Human[][] h=make2DHuman(makeHumans());
-		
 		Grid g = new Grid(height,width,h);
+		for(int i=0; i<time; i++)
+			runOneMinute(g);
+	}
+	
+	private void runOneMinute(Grid g) {
 		
 	}
 	
 	
-		
+	
+	
+	
+	
+	
 }
 
