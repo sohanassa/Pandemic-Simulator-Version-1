@@ -21,4 +21,10 @@ public class Sick extends Human {
 		return PossibilityToInfect;
 	}
 	
+	public String toString() {
+		String S=super.toString();
+		S+=" and is sick with a"+(getPossibilityToInfect()*100)+'%'+" of infecting others";
+		return S;
+	}
+	
 }

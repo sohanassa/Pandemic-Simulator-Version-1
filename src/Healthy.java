@@ -28,7 +28,7 @@ public class Healthy extends Human {
 	}
 	public String toString() {
 	   String S=super.toString();
-	   S+="Human is healthy with a "+(getPossibilityOfInfection()*100)+'%'+" of getting infected";
+	   S+= "and is healthy, with a "+(getPossibilityOfInfection()*100)+'%'+" of getting infected";
 	   return S;
 	}
 	
