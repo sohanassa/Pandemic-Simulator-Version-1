@@ -12,18 +12,18 @@ public class Healthy extends Human {
 	private double calcPossibilityofInfection(double p) {
 		if(immune)
 			return 0;
-		if(getmask())
+		if(getMask())
 			return p/2;
 		return p;
 	}
-	public boolean getimmune() {
+	public boolean getImmune() {
 		return immune;
 	}
-	public double getPossibilityofInfectiion(){
+	public double getPossibilityOfInfection(){
 		return PossibilityofInfectiion;
 	}
 	
-	 public double getPossibiltytoInfect() {
+	 public double getPossibilityToInfect() {
 		return 0;
 	}
 	

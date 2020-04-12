@@ -1,6 +1,5 @@
 public class Simulate {
 	
-	
 	private static int maskUsePers;
 	private static int immunePers;
 	private static double humanInfP;

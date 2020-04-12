@@ -1,32 +1,22 @@
 public class Sick extends Human {
-	private double possibilityToInfect;
+	private double PossibilityToInfect;
 	
-	public Sick() {
-		
+	public Sick(boolean mask, double Pmove, double possibilityToInfect) {
+		super(mask,Pmove);
+		this.PossibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
 	}
-
-	public Sick(double possibilityToInfect) {
-		this.possibilityToInfect=calcPossibilityToInfect(possibilityToInfect);
-	}
-	public double PossibilityofInfection() {
-		return PossibilityofInfection;
+	public double getPossibilityOfInfection() {
+		return 0;
 	}
 	
-	private double calcPossibilityToInfect(double PossibiltytoInfect) {
-		  if(!mask)
-			  return PossibiltytoInfect;
-		  return PossibiltytoInfect/2;
-		  
-		  
-		  
-		
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+	private double calcPossibilityToInfect(double P) {
+		  if(!getMask())
+			  return P;
+		  return P/2;
 	  }
+
+	public double getPossibilityToInfect() {
+		return PossibilityToInfect;
+	}
 	
 }

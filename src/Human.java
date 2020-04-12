@@ -9,15 +9,15 @@ public abstract class Human {
 	  
   }
   
-  public boolean getmask() {
+  public boolean getMask() {
 	  return this.mask;
   }
-  public double getpmove() {
+  public double getPmove() {
 	  return this.pmove;
   }
-  abstract public double getPossibilityofInfectiion();
+  abstract public double getPossibilityOfInfection();
  
-  abstract public double getPossibiltytoInfect();
+  abstract public double getPossibilityToInfect();
   
 
 	public static void main(String[] args) {
