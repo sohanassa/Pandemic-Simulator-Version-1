@@ -70,6 +70,47 @@ public class Grid {
 		timeStayedInSamePosition[Idest][Jdest]=0;
 		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
+	public void move(int i,int j) {
+		boolean move=false;
+		double r;
+		int xp=i;
+		int yp=j;
+				
+		while(!move) {                                      
+			
+			  r=Math.random()*2;                                   
+			  if(r<=0.25)
+				  xp++;
+			  else if(r>0.25&&r<=0.50)
+				  xp--;
+			  else if(r>0.50&&r<=0.75)
+				  yp++;
+			  else if(r>0.75&&r<=1.00)
+				  yp--;
+			  else if(r>1.00&&r<=1.25) {
+				  xp--;
+				  yp--;
+			  }
+			  else if(r>1.25&&r<=1.50) {
+				  xp--;
+				  yp++;
+			  }
+			  else if(r>1.50&&r<=1.75) {
+				  xp++;
+				  yp--;
+			  }
+			  else if(r>1.75&&r<=2.00) {
+				  xp++;
+				  yp++;
+			  }
+			  
+			 if(h[xp][yp]==null) {
+				 move=true;
+				 this.move(i,j,xp,yp);
+
+			 }
+		}
+		}
 	public boolean CheckForInfected(int i,int j) {
 		boolean gotSick=false;
 		for(int k=i-1;k<i+2;k++) {
