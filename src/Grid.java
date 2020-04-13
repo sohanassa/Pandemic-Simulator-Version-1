@@ -76,7 +76,7 @@ public class Grid {
 			for(int c=j-1;c<j+2;c++) {
 				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) {
 					int random = randomizer.nextInt(100);
-						if(getHumanAt(k,c).getPossibilityToInfect()>=random && getHumanAt(i,j).getPossibilityOfInfection()>=random)
+						if(getHumanAt(k,c).getPossibilityToInfect()*100>=random && getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
 							gotSick=true;
 				}
 			}
@@ -84,8 +84,16 @@ public class Grid {
 		}
 		return gotSick;
 		
-		
-		
+	}
+	
+	public boolean CheckForInfectedSpace(int i,int j) {
+		boolean infected[][]=getInfectedSpace();
+		int random = randomizer.nextInt(100);
+		if(infected[i][j])
+			if(getHumanAt(i,j).getPossibilityOfInfection()*100>random && getspaceHumanP()>random)
+				return true;
+		return false;
+			
 	}
 	
 	
