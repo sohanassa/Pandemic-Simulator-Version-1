@@ -86,16 +86,17 @@ public class Grid {
 		
 	}
 	
-	public boolean CheckForInfectedSpace(int i,int j) {
+
+	public boolean CheckForInfectedSpace(int i,int j, double SpaceToHumanP) {
 		boolean infected[][]=getInfectedSpace();
 		int random = randomizer.nextInt(100);
 		if(infected[i][j])
-			if(getHumanAt(i,j).getPossibilityOfInfection()*100>random && getspaceHumanP()>random)
+			if(getHumanAt(i,j).getPossibilityOfInfection()*100>random && SpaceToHumanP>random)
 				return true;
 		return false;
 			
+		
 	}
-	
 	
 	
 	public void drawGrid() {
