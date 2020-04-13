@@ -132,7 +132,7 @@ public class Grid {
 		boolean infected[][]=getInfectedSpace();
 		int random = randomizer.nextInt(100);
 		if(infected[i][j])
-			if(getHumanAt(i,j).getPossibilityOfInfection()*100>random && SpaceToHumanP>random)
+			if(getHumanAt(i,j).getPossibilityOfInfection()*100>=random && SpaceToHumanP*100>=random)
 				return true;
 		return false;
 			
