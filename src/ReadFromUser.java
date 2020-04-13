@@ -5,11 +5,10 @@ public class ReadFromUser {
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		boolean succesfulInput=false;
 		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
-	   do {
-       try{
+		
+		try {
 	       System.out.println("COVID-19 SIMULATOR! ");
 		   System.out.print("Give size of place (height width): ");
 		   h=in.nextInt();
@@ -41,13 +40,12 @@ public class ReadFromUser {
 		
 		   System.out.print("Give percentage of immune peope (between 0-100): ");
 		   immunePers = in.nextInt();
-		   succesfulInput=true;
         }
-        catch(InputMismatchException e) {
-	         System.out.println("Wrong input, try again!");
-	         }
-       
-		}while(!succesfulInput);
+		
+		catch(InputMismatchException e) {
+		     System.out.println("Wrong inpu!");
+		     System.exit(0);
+	       }
 		
 		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time);
 		s.runSimulation();
