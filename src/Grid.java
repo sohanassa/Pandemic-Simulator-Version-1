@@ -9,7 +9,7 @@ public class Grid {
 	private int width;
 	private Human[][] h;
 	private boolean[][] infectedSpace;
-	private int[][] timeStayedInSamePosition;
+	private int[][] freeOfInfectedPeople;
 	private static Random randomizer = new Random();
 
 	public Grid(Human[][] h) {
@@ -17,7 +17,7 @@ public class Grid {
 		this.width=h[0].length;
 		this.h=h;
 		this.infectedSpace = new boolean[length][width];
-		this.timeStayedInSamePosition=new int[length][width];
+		this.freeOfInfectedPeople=new int[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
@@ -138,6 +138,7 @@ public class Grid {
 			
 		
 	}
+	
 	
 	
 	public void drawGrid() {
