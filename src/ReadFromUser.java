@@ -9,6 +9,7 @@ public class ReadFromUser {
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 		boolean error=false;
 	do {
+		
 	System.out.println();
 		try {
 			error=false;
