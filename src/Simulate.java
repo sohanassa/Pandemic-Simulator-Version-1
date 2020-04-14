@@ -103,16 +103,16 @@ public class Simulate {
 						System.out.println("Person was infected in position ("+i+","+j+") by space");
 					}
 				}
-				else {
-				         if(randomizer.nextInt(100)<=movingP*100) {
-					         g.move(i,j);
-				         }
-				         else
-				 	         g.StayedInSamePosition(i, j);
-				      }//else
+				if(randomizer.nextInt(100)<=movingP*100) 
+					 g.move(i,j);
+			    else
+				     g.StayedInSamePosition(i, j);
+				
 			}// null check
 			}//loop2
     	}//loop1
+		g.AddFreeOfInfectedPeopleTime();                         //counts time that space been empty of infected people
+		g.AllArrayHasBeenFreeOfInfected(timeForSquareToBeSafe);  //makes all infected spaces that have been clear of infected people for some time as safeA
 	}//method
 	
 }

@@ -1,18 +1,20 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class ReadFromUser {
 
-	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		
 		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
+		
 		boolean error=false;
 	do {
 		
-	System.out.println();
+	  //System.out.println();
 		try {
-			error=false;
+		   error=false;
 	       System.out.println("COVID-19 SIMULATOR! ");
 		   System.out.print("Give size of place (height width): ");
 		   h=in.nextInt();
@@ -69,22 +71,22 @@ public class ReadFromUser {
         }
 		
 		catch(InputMismatchException e) {
-			error=true;
+			 error=true;
 		     System.out.println("Wrong input!");
-		     
-		     String l=in.nextLine();
+		     in.nextLine();
 	       }
+		
 		catch(Exception e) {
 			error=true;
 			System.out.println(e.getMessage());
-			
-		}
+			in.hasNextLine();
+	    	}
 
 		
-	}while(error);
+	   }while(error);
 		
-		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
-		s.runSimulation();
+	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
+	   s.runSimulation();
 	}
 
 }

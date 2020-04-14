@@ -71,15 +71,13 @@ public class Grid {
 	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-		if(h[Idest][Jdest].getClass()==Sick.class) {
+		if(h[Idest][Jdest].getClass()==Sick.class)
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
-			timeStayedInSamePosition[Idest][Jdest]=0;
-			timeStayedInSamePosition[Istart][Jstart]=0;
-		}
+		timeStayedInSamePosition[Idest][Jdest]=0;
 			
 	}
 	
-	public void moveAll(double Pmove) {
+	/*public void moveAll(double Pmove) {
 		for(int i=0; i<length; i++)
 			for(int j=0; j<width; j++)
 				if(h[i][j]!=null)
@@ -87,7 +85,7 @@ public class Grid {
 					    move(i,j);
 				    }
 					else StayedInSamePosition(i,j);
-	}
+	}*/
 	
 	public void move(int i,int j) {
 		boolean move=false;
@@ -136,7 +134,7 @@ public class Grid {
 			StayedInSamePosition(i,j);
 		}
 	
-public boolean CheckIfSurrounded(int i,int j) {
+private boolean CheckIfSurrounded(int i,int j) {
 	for(int k=i-1;k<i+2; k++) {
 		for(int c=j-1;c<j+2;c++) {
 		  if(c>=0 && c<width && k>=0 && k<length && i!=k && j!=c) {
@@ -174,9 +172,10 @@ public boolean CheckIfSurrounded(int i,int j) {
 			
 		
 	}
+	
 	private boolean hasBeenFreeOfInfected(int timeForSquareToBeSafe,int i,int j) {
 		
-		if(getFreeOfInfectedPeopleTimeAt(i,j)>=timeForSquareToBeSafe)
+		if(freeOfInfectedPeopleTime[i][j]>=timeForSquareToBeSafe)
 			return true;
 		return false;
 		
