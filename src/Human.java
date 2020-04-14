@@ -26,6 +26,5 @@ public class Human {
 		  
 	  return S;
 	  
-	  
   }
 }
