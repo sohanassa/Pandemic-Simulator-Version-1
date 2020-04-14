@@ -67,8 +67,10 @@ public class Grid {
 	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-		if(h[Idest][Jdest].getClass()==Sick.class)
+		if(h[Idest][Jdest].getClass()==Sick.class) {
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
+			infectedSpace[Idest][Jdest]=true;
+		}
 			
 			}
 	
@@ -139,12 +141,30 @@ public class Grid {
 			
 		
 	}
-	public boolean hasBeenFreeOfInfected(int timeForSquareToBeSafe,int i,int j) {
+	private boolean hasBeenFreeOfInfected(int timeForSquareToBeSafe,int i,int j) {
 		
 		if(getFreeOfInfectedPeopleTimeAt(i,j)>=timeForSquareToBeSafe)
 			return true;
 		return false;
 		
+	}
+	
+	public void AllArrayHasBeenFreeOfInfected(int timeForSquareToBeSafe) {
+		for(int i=0; i<length; i++)
+			for(int j=0; j<width; j++) {
+				if(hasBeenFreeOfInfected(timeForSquareToBeSafe,i,j)) {
+					infectedSpace[i][j]=false;
+				}
+			}
+	}
+	
+	public void AddFreeOfInfectedPeopleTime() {
+		for(int i=0; i<length; i++)
+			for(int j=0; j<width; j++) {
+				if(h==null || h.getClass()==Healthy.class) {
+					freeOfInfectedPeopleTime[i][j]++;
+				}
+			}
 	}
 	
 	public void drawGrid() {
