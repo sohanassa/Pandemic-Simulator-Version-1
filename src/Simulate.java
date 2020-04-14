@@ -37,12 +37,12 @@ public class Simulate {
 		
 		Human[] h=new Human[population];
 		for(int i=0; i<population; i++) {
-			boolean mask= randomizer.nextInt(101)<=maskUsePers;
+			boolean mask= randomizer.nextInt(100)<=maskUsePers;
 			
 			if(i==0)
 				h[i]=new Sick(mask, humanInfP, humanSpaceP);
 			else {
-				boolean im= randomizer.nextInt(101)<=immunePers;
+				boolean im= randomizer.nextInt(100)<=immunePers;
 				h[i]=new Healthy(im, mask);
 			}
 		}
@@ -88,10 +88,17 @@ public class Simulate {
 		
 		for(int i=0;i<height;i++) {
 			for(int j=0;j<width;j++) {
+				
 				if(g.getHumanAt(i, j)!=null) {
 				if(g.getHumanAt(i,j).getClass()==Healthy.class) {
-					if(g.CheckForInfected(i, j)||g.CheckForInfectedSpace(i, j, spaceHumanP))
-						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j); //en exw idea pos kamis ton human sick
+					if(g.CheckForInfected(i, j)) {
+						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
+						System.out.println("Person was infected in position ("+i+","+j+") by another human");
+					}
+					if(g.CheckForInfectedSpace(i, j, spaceHumanP)) {
+						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
+						System.out.println("Person was infected in position ("+i+","+j+") by space");
+					}
 					
 					}
 				if(randomizer.nextInt(100)<=movingP*100) {
