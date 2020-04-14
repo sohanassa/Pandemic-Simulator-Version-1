@@ -92,7 +92,7 @@ public class Grid {
 		double r;
 		int xp=i;
 		int yp=j;
-		
+		if(!CheckIfSurrounded(i,j)) {
 		while(!move) {                                      
 			
 			  r=Math.random()*2;                                   
@@ -128,7 +128,20 @@ public class Grid {
 			 }
 		}
 		}
-	
+		else
+			StayedInSamePosition(i,j);
+		}
+public boolean CheckIfSurrounded(int i,int j) {
+	for(int k=i-1;k<i+2; k++) {
+		for(int c=j-1;c<j+2;c++) {
+		  if(c>=0 && c<width && k>=0 && k<length) {
+			  if(h[k][c]!=null)
+				  return false;
+			  }
+		  }
+	}
+	return true;
+}	
 	public boolean CheckForInfected(int i,int j) {
 		for(int k=i-1;k<i+2; k++) {
 			for(int c=j-1;c<j+2;c++) {
