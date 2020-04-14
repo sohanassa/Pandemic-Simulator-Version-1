@@ -1,3 +1,8 @@
+/**
+ * cute can u pull this?
+ * @author sohae
+ *
+ */
 public class Healthy extends Human {
   private boolean immune;
   private double PossibilityofInfection;
