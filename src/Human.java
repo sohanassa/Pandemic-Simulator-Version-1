@@ -18,6 +18,7 @@ public class Human {
 	  return 0;
   }
   
+  
   public String toString() {
 	  String S="Human is ";
 	  if(mask)
