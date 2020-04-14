@@ -56,7 +56,7 @@ public class Grid {
 				}
 	}
 	
-	public void setTimeStayedInSamePositionAt(int i, int j) {
+	public void setFreeofInfectedPositionAt(int i, int j) {
 		freeOfInfectedPeopleTime[i][j]++;
 	}
 	
