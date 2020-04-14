@@ -73,6 +73,8 @@ public class Grid {
 		h[Istart][Jstart]=null;
 		if(h[Idest][Jdest].getClass()==Sick.class) {
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
+			timeStayedInSamePosition[Idest][Jdest]=0;
+			timeStayedInSamePosition[Istart][Jstart]=0;
 		}
 			
 	}
