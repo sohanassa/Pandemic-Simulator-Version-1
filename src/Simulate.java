@@ -66,11 +66,11 @@ public class Simulate {
 		return pin;
 	}
 	
-    private Human makeSick(Human he) {
-    	Healthy healthy = (Healthy) he;
+    private Human makeSick(Human hu) {
+    	Healthy healthy = (Healthy) hu;
     	if(!healthy.getImmune())
-    	   return new Sick(he.getMask(),humanInfP ,humanSpaceP);
-    	return null;
+    	   return new Sick(hu.getMask(),humanInfP ,humanSpaceP);
+    	return hu;
     }
     
     
@@ -91,40 +91,29 @@ public class Simulate {
 		for(int i=0;i<height;i++) {
 			for(int j=0;j<width;j++) {
 				
-				if(g.getHumanAt(i, j)!=null) {
+			if(g.getHumanAt(i, j)!=null) {
 				if(g.getHumanAt(i,j).getClass()==Healthy.class) {
-					if(g.CheckForInfected(i, j)) {
+					if(g.CheckForInfected(i, j) && !g.getHumanAt(i,j).getImmune()) {
 						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
 						System.out.println("Person was infected in position ("+i+","+j+") by another human");
 					}
-					if(g.CheckForInfectedSpace(i, j, spaceHumanP)) {
+					
+					if(g.CheckForInfectedSpace(i, j, spaceHumanP) && !g.getHumanAt(i,j).getImmune()) {
 						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
 						System.out.println("Person was infected in position ("+i+","+j+") by space");
 					}
-					
-					}
-				
-				if(randomizer.nextInt(100)<=movingP*100) {
-					g.move(i,j);
-					
 				}
-				else
-					g.StayedInSamePosition(i, j);
-				
-				
-				
-				
-			}
-		}
-		
-    	}
-	}
-	
-	
-	
-	
-	
-	
+				else {
+				         if(randomizer.nextInt(100)<=movingP*100) {
+					         g.move(i,j);
+				         }
+				         else
+				 	         g.StayedInSamePosition(i, j);
+				      }//else
+			}// null check
+			}//loop2
+    	}//loop1
+	}//method
 	
 }
 

@@ -23,6 +23,10 @@ public class Human {
 	  return 0;
   }
   
+  public boolean getImmune() {
+	  return false;
+  }
+  
   
   public String toString() {
 	  String S="Human is ";

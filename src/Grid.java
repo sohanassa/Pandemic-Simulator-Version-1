@@ -98,9 +98,6 @@ public class Grid {
 		while(!move) {
 			xp=i;
 			yp=j;
-			
-			//StdOut.println("Stuck in move loop");
-			
 			  r=(double) Math.random()*2.0;                                   
 			  if(r<=0.25)
 				  xp++;
@@ -128,8 +125,7 @@ public class Grid {
 			  }
 			  
 			 if(xp>=0 && xp<length && yp>=0 && yp<width && h[xp][yp]==null) {
-				 if(h[i][j]==null)
-					 StdOut.println("BROBLEM BITCHHHHHHHH");
+				
 				 move=true;
 				 this.move(i,j,xp,yp);
 
