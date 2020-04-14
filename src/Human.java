@@ -14,6 +14,7 @@ public class Human {
 	  return 0;
   }
  
+  
   public double getPossibilityToInfect() {
 	  return 0;
   }

@@ -42,7 +42,7 @@ public class Simulate {
 				h[i]=new Sick(mask, humanInfP);
 			else {
 				boolean im= randomizer.nextInt(101)<=immunePers;
-				h[i]=new Healthy(im, mask, humanInfP);
+				h[i]=new Healthy(im, mask);
 			}
 		}
 		return h;

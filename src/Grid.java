@@ -1,4 +1,3 @@
-
 import java.util.Random;
 
 import edu.princeton.cs.introcs.StdDraw;
@@ -9,7 +8,7 @@ public class Grid {
 	private int width;
 	private Human[][] h;
 	private boolean[][] infectedSpace;
-	private int[][] freeOfInfectedPeople;
+	private int[][] freeOfInfectedPeopleTime;
 	private static Random randomizer = new Random();
 
 	public Grid(Human[][] h) {
@@ -17,12 +16,13 @@ public class Grid {
 		this.width=h[0].length;
 		this.h=h;
 		this.infectedSpace = new boolean[length][width];
-		this.freeOfInfectedPeople=new int[length][width];
+		this.freeOfInfectedPeopleTime=new int[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
 		h[i][j]=hum;
 	}
+	
 	
 	public Human getHumanAt(int i, int j) {
 		return h[i][j];
@@ -57,19 +57,18 @@ public class Grid {
 	}
 	
 	public void setTimeStayedInSamePositionAt(int i, int j) {
-		timeStayedInSamePosition[i][j]++;
+		freeOfInfectedPeopleTime[i][j]++;
 	}
 	
-	public int getTimeStayedInSamePositionAt(int i, int j) {
-		return timeStayedInSamePosition[i][j];
+	public int getFreeOfInfectedPeopleTimeAt(int i, int j) {
+		return freeOfInfectedPeopleTime[i][j];
 	}
 	
-	public void move(int Istart, int Jstart, int Idest, int Jdest) {
+	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-		timeStayedInSamePosition[Idest][Jdest]=0;
-		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
+	
 	public void move(int i,int j) {
 		boolean move=false;
 		double r;
@@ -111,34 +110,32 @@ public class Grid {
 			 }
 		}
 		}
+	
 	public boolean CheckForInfected(int i,int j) {
-		boolean gotSick=false;
 		for(int k=i-1;k<i+2;k++) {
 			for(int c=j-1;c<j+2;c++) {
 				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) {
 					int random = randomizer.nextInt(100);
-						if(getHumanAt(k,c).getPossibilityToInfect()*100>=random && getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
-							gotSick=true;
+						if(getHumanAt(k,c).getPossibilityToInfect()*getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
+							return true;
 				}
 			}
 			
 		}
-		return gotSick;
+		return false;
 		
 	}
 	
 
 	public boolean CheckForInfectedSpace(int i,int j, double SpaceToHumanP) {
-		boolean infected[][]=getInfectedSpace();
 		int random = randomizer.nextInt(100);
-		if(infected[i][j])
-			if(getHumanAt(i,j).getPossibilityOfInfection()*100>random && SpaceToHumanP>random)
+		if(infectedSpace[i][j])
+			if(getHumanAt(i,j).getPossibilityOfInfection()*SpaceToHumanP*100>=random)
 				return true;
 		return false;
 			
 		
 	}
-	
 	
 	
 	public void drawGrid() {
@@ -153,4 +150,3 @@ public class Grid {
           }
 	}
 }
-
