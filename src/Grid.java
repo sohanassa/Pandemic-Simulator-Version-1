@@ -67,7 +67,10 @@ public class Grid {
 	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-	}
+		if(h[Idest][Jdest].getClass()==Sick.class)
+			freeOfInfectedPeopleTime[Idest][Jdest]=0;
+			
+			}
 	
 	public void move(int i,int j) {
 		boolean move=false;
