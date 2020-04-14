@@ -9,7 +9,7 @@ public class Grid {
 	private int width;
 	private Human[][] h;
 	private boolean[][] infectedSpace;
-	private int[][] timeStayedInSamePosition;
+	private int[][] freeOfInfectedPeopleTime;
 	private static Random randomizer = new Random();
 
 	public Grid(Human[][] h) {
@@ -17,7 +17,7 @@ public class Grid {
 		this.width=h[0].length;
 		this.h=h;
 		this.infectedSpace = new boolean[length][width];
-		this.timeStayedInSamePosition=new int[length][width];
+		this.freeOfInfectedPeopleTime=new int[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
@@ -57,19 +57,18 @@ public class Grid {
 	}
 	
 	public void setTimeStayedInSamePositionAt(int i, int j) {
-		timeStayedInSamePosition[i][j]++;
+		freeOfInfectedPeopleTime[i][j]++;
 	}
 	
-	public int getTimeStayedInSamePositionAt(int i, int j) {
-		return timeStayedInSamePosition[i][j];
+	public int getFreeOfInfectedPeopleTimeAt(int i, int j) {
+		return freeOfInfectedPeopleTime[i][j];
 	}
 	
 	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-		timeStayedInSamePosition[Idest][Jdest]=0;
-		timeStayedInSamePosition[Istart][Jstart]=0;
 	}
+	
 	public void move(int i,int j) {
 		boolean move=false;
 		double r;
