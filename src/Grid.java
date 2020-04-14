@@ -4,6 +4,7 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class Grid {
 
+	
 	private int length;
 	private int width;
 	private Human[][] h;
@@ -72,17 +73,26 @@ public class Grid {
 		h[Istart][Jstart]=null;
 		if(h[Idest][Jdest].getClass()==Sick.class) {
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
-			infectedSpace[Idest][Jdest]=true;
 		}
 			
-			}
+	}
+	
+	public void moveAll(double Pmove) {
+		for(int i=0; i<length; i++)
+			for(int j=0; j<width; j++)
+				if(h[i][j]!=null)
+					if(Pmove*100>=randomizer.nextInt(100)) {
+					    move(i,j);
+				    }
+					else StayedInSamePosition(i,j);
+	}
 	
 	public void move(int i,int j) {
 		boolean move=false;
 		double r;
 		int xp=i;
 		int yp=j;
-				
+		
 		while(!move) {                                      
 			
 			  r=Math.random()*2;                                   
