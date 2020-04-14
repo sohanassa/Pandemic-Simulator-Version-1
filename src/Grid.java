@@ -139,7 +139,13 @@ public class Grid {
 			
 		
 	}
-	
+	public boolean hasBeenFreeOfInfected(int timeForSquareToBeSafe,int i,int j) {
+		
+		if(getFreeOfInfectedPeopleTimeAt(i,j)>=timeForSquareToBeSafe)
+			return true;
+		return false;
+		
+	}
 	
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
