@@ -7,8 +7,11 @@ public class ReadFromUser {
 		Scanner in = new Scanner(System.in);
 		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
-		
+		boolean error=false;
+	do {
+	System.out.println();
 		try {
+			error=false;
 	       System.out.println("COVID-19 SIMULATOR! ");
 		   System.out.print("Give size of place (height width): ");
 		   h=in.nextInt();
@@ -16,16 +19,23 @@ public class ReadFromUser {
 		
 		   System.out.print("Give number of people: ");
 		   people = in.nextInt();
+		   if(people>(h*w))
+			   throw new Exception("Number of people must be smaller than space capacity");
 		
 		   System.out.print("Give time of simmulation in minuts: ");
 		   time = in.nextInt();
+		    if(time<=0)
+		    	throw new Exception("Time must be larger than 0");
 		
 		   System.out.print("Give time for a space to be safe: ");
 		   timeSpace = in.nextInt();
+		   if(timeSpace<=0)
+		    	throw new Exception("Time must be larger than 0");
 		   
 		   System.out.print("Give time for a space to get infected: ");
 		   timeSpaceInfected = in.nextInt();
-		
+		   if(timeSpaceInfected<=0)
+		    	throw new Exception("Time must be larger than 0");
 		   System.out.print("Give possibility of moving (between 0-1): ");
 		   movingP = in.nextDouble();
 		   if(movingP>1 || movingP<0)
@@ -58,12 +68,19 @@ public class ReadFromUser {
         }
 		
 		catch(InputMismatchException e) {
-		     System.out.println("Wrong inpu!");
-		     System.exit(0);
+			error=true;
+		     System.out.println("Wrong input!");
+		     
+		     String l=in.nextLine();
 	       }
 		catch(Exception e) {
+			error=true;
 			System.out.println(e.getMessage());
+			
 		}
+
+		
+	}while(error);
 		
 		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
 		s.runSimulation();
