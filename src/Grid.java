@@ -48,10 +48,11 @@ public class Grid {
 		infectedSpace[i][j]=true;
 	}
 	
-	public void setAllOccupiedSpacesDangerous() {
+	public void infectSpaces(double humanToSpaceP, int timeNeeded) {
 		for(int i=0; i<length; i++)
 			for(int j=0; j<width; j++)
 				if(h[i][j]!=null && (h[i][j].getClass()==Sick.class)) {
+					if(humanToSpaceP*h[i][j].)
 					infectedSpace[i][j]=true;
 				}
 	}
