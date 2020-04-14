@@ -133,6 +133,7 @@ public class Grid {
 		else
 			StayedInSamePosition(i,j);
 		}
+	
 public boolean CheckIfSurrounded(int i,int j) {
 	for(int k=i-1;k<i+2; k++) {
 		for(int c=j-1;c<j+2;c++) {
