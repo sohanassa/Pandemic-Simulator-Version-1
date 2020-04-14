@@ -18,7 +18,6 @@ public class Simulate {
 	
 	
 	
-	
 	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timesquare, int time, int timespacegettinginfected){
 		maskUsePers=mask;
 		immunePers=immune;
