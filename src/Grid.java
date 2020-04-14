@@ -114,7 +114,8 @@ public class Grid {
 				 move=true;
 				 this.move(i,j,xp,yp);
 
-			 }
+			 }else
+				 StayedInSamePosition(i, j);
 		}
 		}
 	
