@@ -66,8 +66,9 @@ public class Simulate {
 		return pin;
 	}
 	
-    private Sick makeSick(Healthy he) {
-    	if(!he.getImmune())
+    private Human makeSick(Human he) {
+    	Healthy healthy = (Healthy) he;
+    	if(!healthy.getImmune())
     	   return new Sick(he.getMask(),humanInfP ,humanSpaceP);
     	return null;
     }
@@ -84,6 +85,27 @@ public class Simulate {
 	
 	private void runOneMinute(Grid g) {
 		g.infectSpaces(timeForSquareToGetInfected);
+		
+		for(int i=0;i<height;i++) {
+			for(int j=0;j<width;j++) {
+				
+				if(g.getHumanAt(i,j)!=null&&g.getHumanAt(i,j).getClass()==Healthy.class) {
+					if(g.CheckForInfected(i, j)||g.CheckForInfectedSpace(i, j, spaceHumanP))
+						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j); //en exw idea pos kamis ton human sick
+					
+					}
+				if(randomizer.nextInt(100)<movingP) {
+					g.move(i,j);
+					
+				}
+				else
+					g.StayedInSamePosition(i, j);
+				
+				
+				
+				
+			}
+		}
 		
 	}
 	
