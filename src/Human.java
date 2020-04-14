@@ -19,6 +19,10 @@ public class Human {
 	  return 0;
   }
   
+  public double getPossibilityOfInfectingSpace() {
+	  return 0;
+  }
+  
   
   public String toString() {
 	  String S="Human is ";

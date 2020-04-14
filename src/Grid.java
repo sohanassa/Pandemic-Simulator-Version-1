@@ -48,12 +48,12 @@ public class Grid {
 		infectedSpace[i][j]=true;
 	}
 	
-	public void infectSpaces(double humanToSpaceP, int timeNeeded) {
+	public void infectSpaces(int timeNeeded) {
 		for(int i=0; i<length; i++)
 			for(int j=0; j<width; j++)
 				if(h[i][j]!=null && (h[i][j].getClass()==Sick.class)) {
-					if(humanToSpaceP*h[i][j].)
-					infectedSpace[i][j]=true;
+					if(h[i][j].getPossibilityOfInfectingSpace()*100>=randomizer.nextInt(100) && )
+					 infectedSpace[i][j]=true;
 				}
 	}
 	

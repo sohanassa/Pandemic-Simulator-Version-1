@@ -40,7 +40,7 @@ public class Simulate {
 			boolean mask= randomizer.nextInt(101)<=maskUsePers;
 			
 			if(i==0)
-				h[i]=new Sick(mask, humanInfP);
+				h[i]=new Sick(mask, humanInfP, humanSpaceP);
 			else {
 				boolean im= randomizer.nextInt(101)<=immunePers;
 				h[i]=new Healthy(im, mask);
@@ -68,7 +68,7 @@ public class Simulate {
 	
     private Sick makeSick(Healthy he) {
     	if(!he.getImmune())
-    	   return new Sick(he.getMask(),humanInfP);
+    	   return new Sick(he.getMask(),humanInfP ,humanSpaceP);
     	return null;
     }
     
@@ -83,7 +83,7 @@ public class Simulate {
 	}
 	
 	private void runOneMinute(Grid g) {
-		g.setAllOccupiedSpacesDangerous();
+		g.infectSpaces(timeForSquareToGetInfected);
 		
 		
 	}
