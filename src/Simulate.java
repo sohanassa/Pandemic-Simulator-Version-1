@@ -101,6 +101,7 @@ public class Simulate {
 					}
 					
 					}
+				
 				if(randomizer.nextInt(100)<=movingP*100) {
 					g.move(i,j);
 					
