@@ -1,26 +1,26 @@
 public class Healthy extends Human {
   private boolean immune;
-  private double PossibilityofInfectiion;
+  private double PossibilityofInfection;
   
   
-	public Healthy(boolean immune, boolean mask, double PossibilityofInfectiion) {
+	public Healthy(boolean immune, boolean mask) {
 		super(mask);
 		this.immune=immune;
-		this.PossibilityofInfectiion=calcPossibilityofInfection(PossibilityofInfectiion);
+		this.PossibilityofInfection=calcPossibilityofInfection();
 	}
 	
-	private double calcPossibilityofInfection(double p) {
+	private double calcPossibilityofInfection() {
 		if(immune)
 			return 0;
 		if(getMask())
-			return p/2;
-		return p;
+			return 1/2;
+		return 1;
 	}
 	public boolean getImmune() {
 		return immune;
 	}
 	public double getPossibilityOfInfection(){
-		return PossibilityofInfectiion;
+		return PossibilityofInfection;
 	}
 	
 	 public double getPossibilityToInfect() {

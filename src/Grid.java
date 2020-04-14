@@ -64,7 +64,7 @@ public class Grid {
 		return timeStayedInSamePosition[i][j];
 	}
 	
-	public void move(int Istart, int Jstart, int Idest, int Jdest) {
+	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
 		timeStayedInSamePosition[Idest][Jdest]=0;
@@ -111,28 +111,27 @@ public class Grid {
 			 }
 		}
 		}
+	
 	public boolean CheckForInfected(int i,int j) {
-		boolean gotSick=false;
 		for(int k=i-1;k<i+2;k++) {
 			for(int c=j-1;c<j+2;c++) {
 				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) {
 					int random = randomizer.nextInt(100);
-						if(getHumanAt(k,c).getPossibilityToInfect()*100>=random && getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
-							gotSick=true;
+						if(getHumanAt(k,c).getPossibilityToInfect()*getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
+							return true;
 				}
 			}
 			
 		}
-		return gotSick;
+		return false;
 		
 	}
 	
 
 	public boolean CheckForInfectedSpace(int i,int j, double SpaceToHumanP) {
-		boolean infected[][]=getInfectedSpace();
 		int random = randomizer.nextInt(100);
-		if(infected[i][j])
-			if(getHumanAt(i,j).getPossibilityOfInfection()*100>=random && SpaceToHumanP*100>=random)
+		if(infectedSpace[i][j])
+			if(getHumanAt(i,j).getPossibilityOfInfection()*SpaceToHumanP*100>=random)
 				return true;
 		return false;
 			
