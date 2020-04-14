@@ -5,7 +5,7 @@ public class ReadFromUser {
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0;
+		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 		
 		try {
@@ -22,6 +22,9 @@ public class ReadFromUser {
 		
 		   System.out.print("Give time for a space to be safe: ");
 		   timeSpace = in.nextInt();
+		   
+		   System.out.print("Give time for a space to get infected: ");
+		   timeSpaceInfected = in.nextInt();
 		
 		   System.out.print("Give possibility of moving (between 0-1): ");
 		   movingP = in.nextDouble();
@@ -47,7 +50,7 @@ public class ReadFromUser {
 		     System.exit(0);
 	       }
 		
-		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time);
+		Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
 		s.runSimulation();
 	}
 
