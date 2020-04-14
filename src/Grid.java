@@ -161,7 +161,7 @@ public class Grid {
 	public void AddFreeOfInfectedPeopleTime() {
 		for(int i=0; i<length; i++)
 			for(int j=0; j<width; j++) {
-				if(h==null || h.getClass()==Healthy.class) {
+				if(h[i][j]==null || h[i][j].getClass()==Healthy.class) {
 					freeOfInfectedPeopleTime[i][j]++;
 				}
 			}
