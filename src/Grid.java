@@ -9,6 +9,7 @@ public class Grid {
 	private Human[][] h;
 	private boolean[][] infectedSpace;
 	private int[][] freeOfInfectedPeopleTime;
+	private int[][] timeStayedInSamePosition;
 	private static Random randomizer = new Random();
 
 	public Grid(Human[][] h) {
@@ -17,6 +18,7 @@ public class Grid {
 		this.h=h;
 		this.infectedSpace = new boolean[length][width];
 		this.freeOfInfectedPeopleTime=new int[length][width];
+		this.timeStayedInSamePosition=new int[length][width];
 	}
 	
 	public void setHuman(Human hum, int i, int j) {
@@ -166,6 +168,10 @@ public class Grid {
 					freeOfInfectedPeopleTime[i][j]++;
 				}
 			}
+	}
+	public void StayedInSamePosition(int i, int j) {
+		if(h[i][j].getClass()==Sick.class)
+		   timeStayedInSamePosition[i][j]++;
 	}
 	
 	public void drawGrid() {
