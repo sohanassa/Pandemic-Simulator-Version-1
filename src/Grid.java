@@ -121,7 +121,7 @@ public class Grid {
 				  yp++;
 			  }
 			  
-			 if(h[xp][yp]==null) {
+			 if(xp>=0 && xp<length && yp>=0 && yp<width && h[xp][yp]==null) {
 				 move=true;
 				 this.move(i,j,xp,yp);
 
@@ -130,13 +130,15 @@ public class Grid {
 		}
 	
 	public boolean CheckForInfected(int i,int j) {
-		for(int k=i-1;k<i+2;k++) {
+		for(int k=i-1;k<i+2; k++) {
 			for(int c=j-1;c<j+2;c++) {
+			  if(c>=0 && c<width && k>=0 && k<length) {
 				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) {
 					int random = randomizer.nextInt(100);
 						if(getHumanAt(k,c).getPossibilityToInfect()*getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
 							return true;
 				}
+			  }
 			}
 			
 		}
