@@ -75,14 +75,24 @@ public class Grid {
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
 		}
 			
-			}
+	}
+	
+	public void moveAll(double Pmove) {
+		for(int i=0; i<length; i++)
+			for(int j=0; j<width; j++)
+				if(h[i][j]!=null)
+					if(Pmove*100>=randomizer.nextInt(100)) {
+					    move(i,j);
+				    }
+					else StayedInSamePosition(i,j);
+	}
 	
 	public void move(int i,int j) {
 		boolean move=false;
 		double r;
 		int xp=i;
 		int yp=j;
-				
+		
 		while(!move) {                                      
 			
 			  r=Math.random()*2;                                   
@@ -115,8 +125,7 @@ public class Grid {
 				 move=true;
 				 this.move(i,j,xp,yp);
 
-			 }else
-				 StayedInSamePosition(i, j);
+			 }
 		}
 		}
 	
