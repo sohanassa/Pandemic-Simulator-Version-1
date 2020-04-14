@@ -85,7 +85,6 @@ public class Simulate {
 	private void runOneMinute(Grid g) {
 		g.infectSpaces(timeForSquareToGetInfected);
 		
-		
 	}
 	
 	
