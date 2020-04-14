@@ -95,35 +95,41 @@ public class Grid {
 		int xp=i;
 		int yp=j;
 		if(!CheckIfSurrounded(i,j)) {
-		while(!move) {                                      
+		while(!move) {
+			xp=i;
+			yp=j;
 			
-			  r=Math.random()*2;                                   
+			//StdOut.println("Stuck in move loop");
+			
+			  r=(double) Math.random()*2.0;                                   
 			  if(r<=0.25)
 				  xp++;
-			  else if(r>0.25&&r<=0.50)
+			  else if(r<=0.50)
 				  xp--;
-			  else if(r>0.50&&r<=0.75)
+			  else if(r<=0.75)
 				  yp++;
-			  else if(r>0.75&&r<=1.00)
+			  else if(r<=1.00)
 				  yp--;
-			  else if(r>1.00&&r<=1.25) {
+			  else if(r<=1.25) {
 				  xp--;
 				  yp--;
 			  }
-			  else if(r>1.25&&r<=1.50) {
+			  else if(r<=1.50) {
 				  xp--;
 				  yp++;
 			  }
-			  else if(r>1.50&&r<=1.75) {
+			  else if(r<=1.75) {
 				  xp++;
 				  yp--;
 			  }
-			  else if(r>1.75&&r<=2.00) {
+			  else if(r<=2.00) {
 				  xp++;
 				  yp++;
 			  }
 			  
 			 if(xp>=0 && xp<length && yp>=0 && yp<width && h[xp][yp]==null) {
+				 if(h[i][j]==null)
+					 StdOut.println("BROBLEM BITCHHHHHHHH");
 				 move=true;
 				 this.move(i,j,xp,yp);
 
@@ -137,8 +143,8 @@ public class Grid {
 public boolean CheckIfSurrounded(int i,int j) {
 	for(int k=i-1;k<i+2; k++) {
 		for(int c=j-1;c<j+2;c++) {
-		  if(c>=0 && c<width && k>=0 && k<length) {
-			  if(h[k][c]!=null)
+		  if(c>=0 && c<width && k>=0 && k<length && i!=k && j!=c) {
+			  if(h[k][c]==null)
 				  return false;
 			  }
 		  }
