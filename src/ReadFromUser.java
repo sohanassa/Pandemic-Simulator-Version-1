@@ -88,5 +88,4 @@ public class ReadFromUser {
 	   System.out.println("END OF SIMULATION!");
 	   System.exit(0);
 	}
-
 }
