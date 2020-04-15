@@ -17,7 +17,6 @@ public class Simulate {
 	private static Random randomizer = new Random();
 	
 	
-	
 	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timesquare, int time, int timespacegettinginfected){
 		maskUsePers=mask;
 		immunePers=immune;
@@ -73,9 +72,6 @@ public class Simulate {
     	return hu;
     }
     
-    
-	
-    
 	public void runSimulation() {
 		Human[][] h=make2DHuman(makeHumans());
 		Grid g = new Grid(h);
@@ -83,7 +79,6 @@ public class Simulate {
 			System.out.println("Minute "+i);
 			runOneMinute(g);
 		}
-		g.drawGrid();
 	}
 	
 	private void runOneMinute(Grid g) {
