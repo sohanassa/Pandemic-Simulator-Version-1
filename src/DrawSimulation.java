@@ -11,7 +11,7 @@ public class DrawSimulation {
 		width=w;
 	}
 	
-	public void drawGrid() {
+	public void DrawGrid() {
 		
 	    StdDraw.setXscale(-1,length+1);                               
         StdDraw.setYscale(-1,width+1);
@@ -30,33 +30,43 @@ public class DrawSimulation {
             }
 	}
 	
-public  void DrawHumansMovement(int newpx, int newpy, int x, int y, Color c) {
+/*public  void DrawHumansMovement(int newpx, int newpy, int x, int y, Color c) {
 	
     StdDraw.setPenColor(c);
 	StdDraw.filledCircle(newpx-0.5, newpy+0.5, 0.4);   //taking a blind guess about where it will be placed lollll
 	StdDraw.setPenColor(StdDraw.WHITE);
 	StdDraw.filledRectangle(x-0.5, y+0.5, 0.4, 0.4);
+}*/
+
+public void DrawHuman(int x, int y, Color c) {
+	StdDraw.setPenColor(c);
+	StdDraw.filledCircle(x+0.5, y+0.5, 0.4);
 }
 	
 public void DrawInfectedArea(int i, int j){
 	
 	StdDraw.setPenColor(StdDraw.RED);
-	StdDraw.filledRectangle(i-0.5, j+0.5, 0.4, 0.4); //idk what this is gonna look like damn
+	StdDraw.filledRectangle(i+0.5, j+0.5, 0.4, 0.4); //idk what this is gonna look like damn
 	
 }
 public void DisInfectArea(int i,int j) {
 	
 	StdDraw.setPenColor(StdDraw.WHITE);
-	StdDraw.filledRectangle(i-0.5, j+0.5, 0.4, 0.4);
+	StdDraw.filledRectangle(i+0.5, j+0.5, 0.4, 0.4);
+}
+
+public void FillAll() {
+	StdDraw.filledRectangle(0, 0, length, width);
+	DrawGrid();
 }
 
 	/*public static void main(String[] args) {
 
 		DrawSimulation n=new DrawSimulation(10,30);
-		n.drawGrid();
-        n.DrawHumansMovement(5,5,6,7,StdDraw.GREEN);
-        n.DrawInfectedArea(30,12);
-        n.DrawHumansMovement(6,6,5,5,StdDraw.GREEN);
+		n.DrawGrid();
+     //   n.DrawHumansMovement(5,5,6,7,StdDraw.GREEN);
+        n.DrawInfectedArea(9,29);
+      //  n.DrawHumansMovement(6,6,5,5,StdDraw.GREEN);
 	}*/
 
 }
