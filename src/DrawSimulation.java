@@ -26,6 +26,7 @@ public class DrawSimulation {
      		     StdDraw.line(0.0+i,0.0,0.0+i,0.0+width);
             }
 	}
+	
 	public  void DrawHumansMovement(int newpx, int newpy, int x, int y, Color c) {
 	
 	
