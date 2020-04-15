@@ -11,8 +11,6 @@ public class ReadFromUser {
 		
 		boolean error=false;
 	do {
-		
-	  //System.out.println();
 		try {
 		   error=false;
 	       System.out.println("COVID-19 SIMULATOR! ");

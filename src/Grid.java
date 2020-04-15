@@ -60,7 +60,7 @@ public class Grid {
 				if(h[i][j]!=null && (h[i][j].getClass()==Sick.class)) {
 					if(h[i][j].getPossibilityOfInfectingSpace()*100>=randomizer.nextInt(100) && timeStayedInSamePosition[i][j]>=timeNeeded  )
 					 infectedSpace[i][j]=true;
-					// draw.DrawInfectedArea(i, j);
+					 DrawOne(i,j);
 				}
 	}
 	
@@ -75,29 +75,16 @@ public class Grid {
 	private void move(int Istart, int Jstart, int Idest, int Jdest) {
 		h[Idest][Jdest]=h[Istart][Jstart];
 		h[Istart][Jstart]=null;
-		//Color c=StdDraw.GREEN;
 		if(h[Idest][Jdest].getClass()==Sick.class) {
 			freeOfInfectedPeopleTime[Idest][Jdest]=0;
-		//	c=StdDraw.ORANGE;
 		}
 		timeStayedInSamePosition[Idest][Jdest]=0;
+		DrawOne(Idest, Jdest);
+		DrawOne(Istart, Jstart);
 		
-		//draw.DrawHumansMovement(Idest, Jdest, Istart, Jstart, c);
-		//if(infectedSpace[Istart][Jstart])
-		//	draw.DrawInfectedArea(Istart, Jstart);
 		
 			
 	}
-	
-	/*public void moveAll(double Pmove) {
-		for(int i=0; i<length; i++)
-			for(int j=0; j<width; j++)
-				if(h[i][j]!=null)
-					if(Pmove*100>=randomizer.nextInt(100)) {
-					    move(i,j);
-				    }
-					else StayedInSamePosition(i,j);
-	}*/
 	
 	public void move(int i,int j) {
 		boolean move=false;
@@ -198,7 +185,7 @@ private boolean CheckIfSurrounded(int i,int j) {
 			for(int j=0; j<width; j++) {
 				if(hasBeenFreeOfInfected(timeForSquareToBeSafe,i,j)) {
 					infectedSpace[i][j]=false;
-					//draw.DisInfectArea(i, j);
+					DrawOne(i, j);
 				}
 			}
 	}
@@ -215,39 +202,17 @@ private boolean CheckIfSurrounded(int i,int j) {
 		if(h[i][j].getClass()==Sick.class)
 		   timeStayedInSamePosition[i][j]++;
 	}
-	
-	public void DrawAll() {
-		draw.FillAll();
-		for(int i=0; i<length; i++)
-			for(int j=0; j<width; j++) {
-				if(h[i][j]!=null) {
-					
-					if(infectedSpace[i][j])
-						draw.DrawInfectedArea(i, j);
-					else
-						draw.DisInfectArea(i, j);
-					
-				    Color c =StdDraw.GREEN;
-				    if(h[i][j]!=null && h[i][j].getClass()==Sick.class)
-					   c=StdDraw.RED;
-				   else 
-					   draw.DrawHuman(i, j, c);
-			    }	
-		}
+	private void DrawOne(int i, int j) {
+		if(infectedSpace[i][j])
+			draw.DrawInfectedArea(i, j);
+		else
+			draw.DisInfectArea(i, j);
+		
+		if(h[i][j]!=null) {
+		    Color c = StdDraw.GREEN;
+		    if(h[i][j].getClass()==Sick.class)
+			   c=StdDraw.ORANGE;
+			draw.DrawHuman(i, j, c);
+	    }
 	}
-	
-	/*public void DrawSpaces() {
-		for(int i=0; i<length; i++)
-			for(int j=0; j<width; j++)
-				if(infectedSpace[i][j])
-					draw.DrawInfectedArea(i, j);
-				else
-					draw.DisInfectArea(i, j);
-	}*/
-	
-	
-	
-	
-	
-	
 }

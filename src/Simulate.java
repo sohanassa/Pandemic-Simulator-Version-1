@@ -82,7 +82,6 @@ public class Simulate {
 	}
 	
 	private void runOneMinute(Grid g) {
-		g.DrawAll();
 		g.infectSpaces(timeForSquareToGetInfected);
 		
 		for(int i=0;i<height;i++) {
