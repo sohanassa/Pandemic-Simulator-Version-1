@@ -18,27 +18,29 @@ public class DrawSimulation {
 	}
 	public  void DrawHumansMovement(int newpx, int newpy, int x, int y, Color c) {
 	
-	StdDraw.setPenRadius(0.2);
+	
 	StdDraw.setPenColor(c);
-	StdDraw.filledCircle(newpx+0.5, newpy+0.5, 0.05);   //taking a blind guess about where it will be placed lollll
+	StdDraw.filledCircle(newpx-0.5, newpy+0.5, 0.4);   //taking a blind guess about where it will be placed lollll
 	StdDraw.setPenColor(StdDraw.WHITE);
-	StdDraw.filledCircle(x+0.5, y+0.5, 0.05);
+	StdDraw.filledRectangle(x-0.5, y+0.5, 0.4, 0.4);
 	
 }
 public void DrawInfectedArea(int i, int j){
-	StdDraw.setPenRadius(0.2);
+	
 	StdDraw.setPenColor(StdDraw.GREEN);
-	StdDraw.filledRectangle(i, j, halfWidth, halfHeight); //idk what this is gonna look like damn
+	StdDraw.filledRectangle(i-0.5, j+0.5, 0.4, 0.4); //idk what this is gonna look like damn
 	
 }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DrawSimulation n=new DrawSimulation();
-		//n.DrawHumansMovement(5,5,6,7,StdDraw.BLACK);
+		
 
 		n.drawGrid();
-
+n.DrawHumansMovement(5,5,6,7,StdDraw.GREEN);
+n.DrawInfectedArea(9, 5);
+n.DrawHumansMovement(6,6,5,5,StdDraw.GREEN);
 	}
 
 }
