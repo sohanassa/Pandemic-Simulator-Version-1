@@ -83,6 +83,7 @@ public class Simulate {
 			System.out.println("Minute "+i);
 			runOneMinute(g);
 		}
+		g.drawGrid();
 	}
 	
 	private void runOneMinute(Grid g) {
