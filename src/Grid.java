@@ -4,7 +4,6 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class Grid {
 
-	
 	private int length;
 	private int width;
 	private Human[][] h;
