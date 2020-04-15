@@ -5,6 +5,10 @@ import java.awt.Color;
 public class DrawSimulation {
 	int length=10;
 	int width=10;
+	public DrawSimulation(int l, int w) {
+		length=l;
+		width=w;
+	}
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
         StdDraw.setYscale(-1,width+1);
@@ -35,13 +39,13 @@ public void DrawInfectedArea(int i, int j){
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		DrawSimulation n=new DrawSimulation();
+		DrawSimulation n=new DrawSimulation(30,10);
 		
 
 		n.drawGrid();
-n.DrawHumansMovement(5,5,6,7,StdDraw.GREEN);
-n.DrawInfectedArea(9, 5);
-n.DrawHumansMovement(6,6,5,5,StdDraw.GREEN);
+        n.DrawHumansMovement(5,5,6,7,StdDraw.GREEN);
+        n.DrawInfectedArea(9, 5);
+        n.DrawHumansMovement(6,6,5,5,StdDraw.GREEN);
 	}
 
 }
