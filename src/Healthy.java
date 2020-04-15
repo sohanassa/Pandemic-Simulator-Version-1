@@ -40,13 +40,6 @@ public class Healthy extends Human {
 	public double getPossibilityOfInfection(){
 		return PossibilityofInfection;
 	}
-	/**
-	 *Getter method for PossibilityToInfection
-	 *@return boolean, value of PossibilityToInfection
-	 */
-	 public double getPossibilityToInfect() {
-		return 0;
-	}
 	 
 	/**
 	 *toString method

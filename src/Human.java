@@ -20,40 +20,6 @@ public class Human {
 public boolean getMask() { 
 	  return this.mask;
   }
-
-  /**
-   * Method to be overriden.
- * @return
- */
-public double getPossibilityOfInfection() {
-	  return 0;
-  }
- 
-/**
- * Method to be overriden.
-* @return
-*/
-  public double getPossibilityToInfect() {
-	  return 0;
-  }
-  /**
-   * Method to be overriden.
- * @return
- */
-  public double getPossibilityOfInfectingSpace() {
-	  return 0;
-  }
-  
-  /**
-   * Method to be overriden.
- * @return
- */
-public boolean getImmune() {
-	  return false;
-  }
-  
-
-  
   
 /**
  *toString method
