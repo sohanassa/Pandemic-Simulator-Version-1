@@ -1,6 +1,12 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * This class is for reading the inputs on the user
+ * @author Zoe Passiadou
+ * @author Sohaib Nassar
+ *
+ */
 public class ReadFromUser {
 
 	public static void main(String[] args) {
@@ -10,9 +16,9 @@ public class ReadFromUser {
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 		
 		boolean error=false;
-	do {
-		try {
-		   error=false;
+	do {                                         // do while loop for re reading in case exception was thrown
+		try {                                    //try for reading all inputs 
+		   error=false;  //for checking if exception was thrown
 	       System.out.println("COVID-19 SIMULATOR! ");
 		   System.out.print("Give size of place (height width):");
 		   h=in.nextInt();
@@ -20,71 +26,71 @@ public class ReadFromUser {
 		
 		   System.out.print("Give number of people:");
 		   people = in.nextInt();
-		   if(people>(h*w))
-			   throw new Exception("Number of people must be smaller than space capacity");
+		   if(people>(h*w)) //if the people are more than the capacity of out place 
+			   throw new Exception("Number of people must be smaller than space capacity"); //throw exception
 		
 		   System.out.print("Give time of simmulation in minutes:");
 		   time = in.nextInt();
-		    if(time<=0)
-		    	throw new Exception("Time must be larger than 0");
+		    if(time<=0)   //if the time given is negative
+		    	throw new Exception("Time must be larger than 0"); //throw exception
 		
 		   System.out.print("Give time for a space to be safe:");
 		   timeSpace = in.nextInt();
-		   if(timeSpace<=0)
-		    	throw new Exception("Time must be larger than 0");
+		   if(timeSpace<=0) //if the time given is negative
+		    	throw new Exception("Time must be larger than 0");//throw exception
 		   
 		   System.out.print("Give time for a space to get infected:");
 		   timeSpaceInfected = in.nextInt();
-		   if(timeSpaceInfected<=0)
-		    	throw new Exception("Time must be larger than 0");
+		   if(timeSpaceInfected<=0)//if the time given is negative
+		    	throw new Exception("Time must be larger than 0");//throw exception
 		   System.out.print("Give possibility of moving (between 0-1):");
 		   movingP = in.nextDouble();
-		   if(movingP>1 || movingP<0)
-			   throw new Exception("possibility of moving must be between 0 and 1!");
+		   if(movingP>1 || movingP<0) //if the possibility is not from 0-1
+			   throw new Exception("possibility of moving must be between 0 and 1!");//throw exception
 		
 		   System.out.print("Give possibility of infecting another human (between 0-1):");
 		   infectingP = in.nextDouble();
-		   if(infectingP>1 || infectingP<0)
-			   throw new Exception("possibility of infecting another human must be between 0 and 1!");
+		   if(infectingP>1 || infectingP<0) //if the possibility is not from 0-1
+			   throw new Exception("possibility of infecting another human must be between 0 and 1!");//throw exception
 		
 		   System.out.print("Give possibility of infecting a space (between 0-1):");
 		   infSpaceP = in.nextDouble();
-		   if(infSpaceP>1 || infSpaceP<0)
-			   throw new Exception("possibility of infecting a space must be between 0 and 1!");
+		   if(infSpaceP>1 || infSpaceP<0)//if the possibility is not from 0-1
+			   throw new Exception("possibility of infecting a space must be between 0 and 1!");//throw exception
 		
 		   System.out.print("Give possibility of getting infected froma a space (between 0-1):");
 		   spaceInfHuman = in.nextDouble();
-		   if(spaceInfHuman>1 || spaceInfHuman<0)
-			   throw new Exception("possibility of getting infected froma a space must be between 0 and 1!");
+		   if(spaceInfHuman>1 || spaceInfHuman<0)//if the possibility is not from 0-1
+			   throw new Exception("possibility of getting infected froma a space must be between 0 and 1!");//throw exception
 		
 		   System.out.print("Give percentage of mask use (between 0-100):");
 		   maskPers = in.nextInt();
-		   if(spaceInfHuman>100 || spaceInfHuman<0)
-			   throw new Exception("percentage of mask use must be between 0 and 100!");
+		   if(spaceInfHuman>100 || spaceInfHuman<0)// if the possibility is not from 0-100
+			   throw new Exception("percentage of mask use must be between 0 and 100!");//throw exception
 		
 		   System.out.print("Give percentage of immune peoplee (between 0-100):");
 		   immunePers = in.nextInt();
-		   if(immunePers>100 || immunePers<0)
-			   throw new Exception("percentage of immune people must be between 0 and 100!");
+		   if(immunePers>100 || immunePers<0)// if the possibility is not from 0-100
+			   throw new Exception("percentage of immune people must be between 0 and 100!");//throw exception
         }
 		
-		catch(InputMismatchException e) {
-			 error=true;
+		catch(InputMismatchException e) {              //catch  InputMismatchException
+			 error=true;                               //set error as true
 		     System.out.println("Wrong input!");
 		     in.nextLine();
 	       }
 		
-		catch(Exception e) {
-			error=true;
+		catch(Exception e) {//catch  InputMismatchException
+			error=true;//set error as true
 			System.out.println(e.getMessage());
 			in.hasNextLine();
 	    	}
 
 		
 	   }while(error);
-		
+		//create an object type Simulate
 	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
-	   s.runSimulation();
+	   s.runSimulation(); //call runSimulation
 	   System.out.println("END OF SIMULATION!");
 	   System.exit(0);
 	}
