@@ -76,7 +76,7 @@ public class Simulate {
 		Human[][] h=make2DHuman(makeHumans());
 		Grid g = new Grid(h);
 		for(int i=0; i<time; i++) {
-			System.out.println("Minute "+i);
+			System.out.println("Minute: "+(i+1));
 			runOneMinute(g);
 		}
 	}
