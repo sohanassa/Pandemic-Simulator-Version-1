@@ -3,18 +3,23 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.Color;
 
 public class DrawSimulation {
-	int length=10;
+	int length=30;
 	int width=10;
 	public void drawGrid() {
 		 StdDraw.setXscale(-1,length+1);                               
         StdDraw.setYscale(-1,width+1);
         StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.setPenRadius(0.2/(length*2));
-        
+        if(width<length)
 		 for(int i=0;i<=this.length;i++) {                                
   		     StdDraw.line(0.0,0.0+i,0.0+length,0.0+i);
   		     StdDraw.line(0.0+i,0.0,0.0+i,0.0+width);
          }
+        else
+        	for(int i=0;i<=this.width;i++) {                                
+     		     StdDraw.line(0.0,0.0+i,0.0+length,0.0+i);
+     		     StdDraw.line(0.0+i,0.0,0.0+i,0.0+width);
+            }
 	}
 	public  void DrawHumansMovement(int newpx, int newpy, int x, int y, Color c) {
 	
