@@ -5,7 +5,8 @@ import edu.princeton.cs.introcs.StdDraw;
 
 /**
  * This Class creates an object Grid 
- * @author zpass
+ * @author Zoe Passiadou
+ * @author Sohaib Nassar
  *
  */
 public class Grid {
@@ -19,9 +20,7 @@ public class Grid {
 	private static Random randomizer = new Random();
 	private DrawSimulation draw;  //an object type DrawSimulation
 
-	/**
-	 * @param h
-	 */
+	
 	public Grid(Human[][] h) {            //constuctor receives a 2D array type Human
 		this.length=h.length;             //set length 
   		this.width=h[0].length;           //set width
