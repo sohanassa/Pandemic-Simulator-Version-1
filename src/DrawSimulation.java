@@ -32,6 +32,10 @@ public void DrawInfectedArea(int i, int j){
 	StdDraw.filledRectangle(i-0.5, j+0.5, 0.4, 0.4); //idk what this is gonna look like damn
 	
 }
+public void DisInfectArea(int i,int j) {
+	StdDraw.setPenColor(StdDraw.GREEN);
+	StdDraw.filledRectangle(i-0.5, j+0.5, 0.4, 0.4);
+}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
