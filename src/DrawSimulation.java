@@ -25,6 +25,7 @@ public class DrawSimulation {
 	StdDraw.filledRectangle(x-0.5, y+0.5, 0.4, 0.4);
 	
 }
+	
 public void DrawInfectedArea(int i, int j){
 	
 	StdDraw.setPenColor(StdDraw.GREEN);
