@@ -7,6 +7,7 @@ import java.awt.Color;
  * @author Zoe Passiadou
  *@author Sohaib Nassar
  */
+
 public class DrawSimulation {
 	int length;          //represents the length of the grid
 	int width;          //represents the width of the grid
