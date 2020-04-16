@@ -26,6 +26,7 @@ public class Simulate {
 	private int cnt=0;                            //  counter for counting how many people got infected
 	private static Random randomizer = new Random();
 	
+	
 	//constructor
 	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected, int maskProtection){
 		maskUsePers=mask;

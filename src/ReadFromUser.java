@@ -32,6 +32,7 @@ public class ReadFromUser {
 		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0,maskProtection=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 		
+		
 		if(choice.equalsIgnoreCase("Yes")) {
 			do {
 				try {
