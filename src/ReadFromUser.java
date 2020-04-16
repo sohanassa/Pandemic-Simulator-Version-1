@@ -34,12 +34,12 @@ public class ReadFromUser {
 		    if(time<=0)   //if the time given is negative
 		    	throw new Exception("Time must be larger than 0"); //throw exception
 		
-		   System.out.print("Give time for a space to be safe:");
+		   System.out.print("Give the time needed for a space to become disinfected:");
 		   timeSpace = in.nextInt();
 		   if(timeSpace<=0) //if the time given is negative
 		    	throw new Exception("Time must be larger than 0");//throw exception
 		   
-		   System.out.print("Give time for a space to get infected:");
+		   System.out.print("Give the time needed for a space to get infected:");
 		   timeSpaceInfected = in.nextInt();
 		   if(timeSpaceInfected<=0)//if the time given is negative
 		    	throw new Exception("Time must be larger than 0");//throw exception

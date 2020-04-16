@@ -62,18 +62,6 @@ public class Grid {
 		return infectedSpace[i][j];
 	}
 	
-//	public boolean[][] getInfectedSpace() {
-//		return infectedSpace;
-//	}
-	
-//	public void setSafeSpaceAt(int i, int j) {
-//		infectedSpace[i][j]=false;
-//	}
-//	
-//	public void setDangerousSpaceAt(int i, int j) {
-//		infectedSpace[i][j]=true;
-//	}
-	
 	/**
 	 * This method checks to see if the positions will become infected.
 	 * @param timeNeeded represents the time needed for space to get infected
@@ -82,20 +70,13 @@ public class Grid {
 		for(int i=0; i<length; i++)   //checking for every position in the array
 			for(int j=0; j<width; j++)
 				if(human[i][j]!=null && (human[i][j].getClass()==Sick.class)) { //if the human in that position is Sick
-					//using randomizer,if the possibility is higher then the random number, and the time stayed in same spot is equal or larger thrn timeNeeded 
-					if(human[i][j].getPossibilityOfInfectingSpace()*100>=randomizer.nextInt(100) && timeStayedInSamePosition[i][j]>=timeNeeded  )
+					//using randomizer,if the possibility is higher then the random number, and the time stayed in same spot is equal or larger than timeNeeded
+					Sick sik = (Sick) human[i][j];  //downcasting
+					if(sik.getPossibilityOfInfectingSpace()>=randomizer.nextDouble() && timeStayedInSamePosition[i][j]>=timeNeeded  )
 					 infectedSpace[i][j]=true; //then infect the space
 					 DrawOne(i,j);             //call method DrawOne to visually represent the infected area on our canvas
 				}
 	}
-	
-//	public void setFreeofInfectedPositionAt(int i, int j) {
-//		freeOfInfectedPeopleTime[i][j]++;
-//	}
-	
-//	public int getFreeOfInfectedPeopleTimeAt(int i, int j) {
-//		return freeOfInfectedPeopleTime[i][j];
-//	}
 	
 	/**
 	 * This method moves the human by putting it in new position and setting old position equal to null. 
@@ -198,9 +179,10 @@ private boolean CheckIfSurrounded(int i,int j) {
 			for(int c=j-1;c<j+2;c++) {
 			  if(c>=0 && c<width && k>=0 && k<length) {//if we are still within the array
 				if(getHumanAt(k,c)!=null && (k!=i&&c!=j) && (getHumanAt(k,c).getClass()==Sick.class)) { //check if there is a sick human around
-					int random = randomizer.nextInt(100);
+					double random = randomizer.nextDouble();
 					//check if the healthy human gets sick
-						if(getHumanAt(k,c).getPossibilityToInfect()*getHumanAt(i,j).getPossibilityOfInfection()*100>=random)
+					Sick sik = (Sick) getHumanAt(k,c); //downcasting
+						if(sik.getPossibilityToInfect()*( (Healthy) getHumanAt(i,j)).getPossibilityOfInfection()>=random)
 							return true; //if so return true
 				}
 			  }
@@ -220,9 +202,9 @@ private boolean CheckIfSurrounded(int i,int j) {
 	 * @return boolean, true if they get sick, else return false
 	 */
 	public boolean CheckForInfectedSpace(int i,int j, double SpaceToHumanP) {
-		int random = randomizer.nextInt(100);
+		double random = randomizer.nextDouble();
 		if(infectedSpace[i][j]) //if the sapce they are in is infected
-			if(getHumanAt(i,j).getPossibilityOfInfection()*SpaceToHumanP*100>=random) //check to see if they get infected, using randomizer
+			if(((Healthy) getHumanAt(i,j)).getPossibilityOfInfection() *SpaceToHumanP>=random) //check to see if they get infected, using randomizer
 				return true;
 		return false;
 			

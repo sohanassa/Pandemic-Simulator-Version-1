@@ -17,7 +17,7 @@ public class Simulate {
 	private static Random randomizer = new Random();
 	
 	
-	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timesquare, int time, int timespacegettinginfected){
+	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected){
 		maskUsePers=mask;
 		immunePers=immune;
 		humanInfP=humanInf;
@@ -27,7 +27,7 @@ public class Simulate {
 		height=h;
 		width=w;
 		population=pop;
-		timeForSquareToBeSafe=timesquare;
+		timeForSquareToBeSafe=timespace;
 		timeForSquareToGetInfected=timespacegettinginfected;
 		this.time=time;
 	}
@@ -36,12 +36,12 @@ public class Simulate {
 		
 		Human[] h=new Human[population];
 		for(int i=0; i<population; i++) {
-			boolean mask= randomizer.nextInt(100)<=maskUsePers;
+			boolean mask= randomizer.nextInt(101)<=maskUsePers;
 			
 			if(i==0)
 				h[i]=new Sick(mask, humanInfP, humanSpaceP);
 			else {
-				boolean im= randomizer.nextInt(100)<=immunePers;
+				boolean im= randomizer.nextInt(101)<=immunePers;
 				h[i]=new Healthy(im, mask);
 			}
 		}
@@ -89,17 +89,18 @@ public class Simulate {
 				
 			if(g.getHumanAt(i, j)!=null) {
 				if(g.getHumanAt(i,j).getClass()==Healthy.class) {
-					if(g.CheckForInfected(i, j) && !g.getHumanAt(i,j).getImmune()) {
+					Healthy healthyPer = (Healthy) g.getHumanAt(i, j);
+					if(!healthyPer.getImmune() && g.CheckForInfected(i, j)) {
 						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
-						System.out.println("Person was infected in position ("+i+","+j+") by another human");
+						System.out.println("A person was infected in position ("+i+","+j+") by another person!");
 					}
 					
-					if(g.CheckForInfectedSpace(i, j, spaceHumanP) && !g.getHumanAt(i,j).getImmune()) {
+					if(!healthyPer.getImmune() && g.CheckForInfectedSpace(i, j, spaceHumanP)) {
 						g.setHuman(makeSick(g.getHumanAt(i, j)), i, j);
-						System.out.println("Person was infected in position ("+i+","+j+") by space");
+						System.out.println("A person was infected in position ("+i+","+j+") by the space around him/her!");
 					}
 				}
-				if(randomizer.nextInt(100)<=movingP*100) 
+				if(randomizer.nextDouble()<=movingP) 
 					 g.move(i,j);
 			    else
 				     g.StayedInSamePosition(i, j);

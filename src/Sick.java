@@ -1,11 +1,8 @@
 /**
- * This class extends Human and created an object called healthy.
+ * This class extends Human and creates an object Sick.
+ * Represents a Sick Human
  * @author Zoe Passidou
- *@author Sohaib Nassar
- */
-/**
- * @author zpass
- *
+ * @author Sohaib Nassar
  */
 public class Sick extends Human {
 	private double PossibilityToInfect; //represents the Possibility of the sick human to infect others
@@ -18,13 +15,6 @@ public class Sick extends Human {
 	}
 	
 	/**
-	 *Getter method for PossibilityOfInfection
-	 *@return boolean, value of PossibilityOfInfection
-	 */
-	public double getPossibilityOfInfection() {
-		return 0;
-	}
-	/**
 	 * This method calculates the possibility of the sick human of infecting.
 	 * @return double, the possibility of infection
 	 */
@@ -34,14 +24,14 @@ public class Sick extends Human {
 		  return P/2;
 	  }
 	/**
-	 *Getter method for PossibilityToInfection
+	 *Getter method for PossibilityToInfection.
 	 *@return boolean, value of PossibilityOToInfection
 	 */
 	public double getPossibilityToInfect() {
 		return PossibilityToInfect;
 	}
 	/**
-	 *Getter method for PossibilityOfInfectingSpace
+	 *Getter method for PossibilityOfInfectingSpace.
 	 *@return boolean, value of PossibilityOfInfectingSpace
 	 */
 	public double getPossibilityOfInfectingSpace() {
@@ -49,7 +39,7 @@ public class Sick extends Human {
 	}
 	
 	/**
-	 *toString method
+	 *toString method.
 	 */
 	public String toString() {
 		String S=super.toString();
