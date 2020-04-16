@@ -95,6 +95,7 @@ public class ReadFromUser {
 	   }while(error);
 		//create an object type Simulate
 	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected,maskP);
+	   
 	   s.runSimulation(); //call runSimulation
 	   System.out.println("END OF SIMULATION!");
 	   System.exit(0);
