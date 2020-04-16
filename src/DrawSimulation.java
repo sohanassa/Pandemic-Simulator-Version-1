@@ -3,8 +3,9 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.Color;
 
 /**
- * This class creates an object called DrawSimulation used for drawing the canvas
- * @author Zoe Passiadou
+ * This class creates an object called DrawSimulation used for drawing the simulation.
+ * 
+ *@author Zoe Passiadou
  *@author Sohaib Nassar
  */
 

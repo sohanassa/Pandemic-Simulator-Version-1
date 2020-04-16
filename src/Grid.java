@@ -4,7 +4,8 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdDraw;
 
 /**
- * This Class creates an object Grid 
+ * This Class creates an object Grid which represents the humans and the spaces in the simulation.
+ * 
  * @author Zoe Passiadou
  * @author Sohaib Nassar
  *
@@ -13,7 +14,7 @@ public class Grid {
 
 	private int length;                        //represents the length of the grid
 	private int width;                         //represents the width of the grid
-	private Human[][] human;                       //An array type Human
+	private Human[][] human;                   //An array type Human
 	private boolean[][] infectedSpace;         //an array that represents whether or not the space at a certain position is infected
 	private int[][] freeOfInfectedPeopleTime;  //an array that holds the time that a certain position has been free of an infected person
 	private int[][] timeStayedInSamePosition;  //an array that holds the time that an infected person has been in the same position for
@@ -204,7 +205,7 @@ private boolean CheckIfSurrounded(int i,int j) {
 	public boolean CheckForInfectedSpace(int i,int j, double SpaceToHumanP) {
 		double random = randomizer.nextDouble();
 		if(infectedSpace[i][j]) //if the sapce they are in is infected
-			if(((Healthy) getHumanAt(i,j)).getPossibilityOfInfection() *SpaceToHumanP>=random) //check to see if they get infected, using randomizer
+			if(getHumanAt(i,j).getClass()==Healthy.class && ((Healthy) getHumanAt(i,j)).getPossibilityOfInfection() *SpaceToHumanP>=random) //check to see if they get infected, using randomizer
 				return true;
 		return false;
 			

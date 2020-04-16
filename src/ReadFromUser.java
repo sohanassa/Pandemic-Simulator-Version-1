@@ -2,7 +2,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * This class is for reading the inputs on the user
+ * This class is for reading the inputs from the user and running the simulation based on the inputs given.
+ * 
  * @author Zoe Passiadou
  * @author Sohaib Nassar
  *
@@ -19,7 +20,8 @@ public class ReadFromUser {
 	do {                                         // do while loop for re reading in case exception was thrown
 		try {                                    //try for reading all inputs 
 		   error=false;  //for checking if exception was thrown
-	       System.out.println("COVID-19 SIMULATOR! ");
+	       System.out.println("COVID-19 SIMULATOR!\n");
+	       System.out.println("*StdDraw Disclaimer*\n1)Green Circle <- Healthy Person\n2)Orange Circle <- Sick Person\n3)Red Square <- Infected Area\n");
 		   System.out.print("Give size of place (height width):");
 		   h=in.nextInt();
 		   w=in.nextInt();
@@ -73,7 +75,7 @@ public class ReadFromUser {
 		   if(immunePers>100 || immunePers<0)// if the possibility is not from 0-100
 			   throw new Exception("percentage of immune people must be between 0 and 100!");//throw exception
 		   
-		   System.out.print("Give percentage of protection of a fsce mask (between 0-100):");
+		   System.out.print("Give the percentage of protection that a face mask gives (between 0-100):");
 		     maskProtection=in.nextInt();
 		     if(maskProtection>100 || maskProtection<0)// if the possibility is not from 0-100
 				   throw new Exception("percentage must be between 0 and 100!");//throw exception

@@ -1,6 +1,7 @@
 
 /**
- * This class extends Human and created an object called healthy.
+ * This class extends Human and created an object called healthy extends human.
+ * 
  * @author Zoe Passidou
  *@author Sohaib Nassar
  */

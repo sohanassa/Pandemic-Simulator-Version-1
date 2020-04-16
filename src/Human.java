@@ -1,5 +1,6 @@
 /**
  * This class created an object called Human.
+ * 
  * @author Zoe Passiadou
  * @author Sohaib Nassar
  *

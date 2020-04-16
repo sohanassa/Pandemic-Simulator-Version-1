@@ -1,6 +1,7 @@
 /**
- * This class extends Human and creates an object Sick.
+ * This class extends Human and creates an object Sick extends human.
  * Represents a Sick Human
+ * 
  * @author Zoe Passidou
  * @author Sohaib Nassar
  */
