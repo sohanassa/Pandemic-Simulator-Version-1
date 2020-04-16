@@ -14,10 +14,11 @@ public class Simulate {
 	private static int timeForSquareToBeSafe;
 	private static int time;
 	private static int timeForSquareToGetInfected;
+	private static int maskP;
 	private static Random randomizer = new Random();
 	
 	
-	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected){
+	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected, int maskP){
 		maskUsePers=mask;
 		immunePers=immune;
 		humanInfP=humanInf;
@@ -30,6 +31,7 @@ public class Simulate {
 		timeForSquareToBeSafe=timespace;
 		timeForSquareToGetInfected=timespacegettinginfected;
 		this.time=time;
+		this.maskP=maskP;
 	}
 	
 	private Human[] makeHumans() {

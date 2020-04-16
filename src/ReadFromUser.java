@@ -12,7 +12,7 @@ public class ReadFromUser {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0;
+		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0,maskP=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
 		
 		boolean error=false;
@@ -72,6 +72,11 @@ public class ReadFromUser {
 		   immunePers = in.nextInt();
 		   if(immunePers>100 || immunePers<0)// if the possibility is not from 0-100
 			   throw new Exception("percentage of immune people must be between 0 and 100!");//throw exception
+		   System.out.print("Give percentage of protection of a fsce mask (between 0-100):");
+		     maskP=in.nextInt();
+		     if(maskP>100 || maskP<0)// if the possibility is not from 0-100
+				   throw new Exception("percentage must be between 0 and 100!");//throw exception
+		     
         }
 		
 		catch(InputMismatchException e) {              //catch  InputMismatchException
@@ -89,7 +94,7 @@ public class ReadFromUser {
 		
 	   }while(error);
 		//create an object type Simulate
-	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected);
+	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected,maskP);
 	   s.runSimulation(); //call runSimulation
 	   System.out.println("END OF SIMULATION!");
 	   System.exit(0);
