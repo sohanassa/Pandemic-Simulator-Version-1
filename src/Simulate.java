@@ -44,7 +44,7 @@ public class Simulate {
 		this.maskProtection=maskProtection;
 	}
 	public Simulate(int h,int w, int pop) {
-		this(20,10,0.8,0.6,0.5,0.6,h,w,pop,4,50,5,20);
+		this(20,10,0.7,0.6,0.4,0.6,h,w,pop,8,60,3,20);
 	}
 	/**
 	 * This method creates all the humans in a 1D array.
