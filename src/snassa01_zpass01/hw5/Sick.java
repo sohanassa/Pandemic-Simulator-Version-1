@@ -1,3 +1,5 @@
+package snassa01_zpass01.hw5;
+
 /**
  * This class extends Human and creates an object Sick extends human.
  * Represents a Sick Human

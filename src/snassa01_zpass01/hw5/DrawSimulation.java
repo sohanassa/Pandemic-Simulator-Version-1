@@ -1,3 +1,4 @@
+package snassa01_zpass01.hw5;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.Color;

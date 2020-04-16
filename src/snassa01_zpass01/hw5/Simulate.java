@@ -1,3 +1,4 @@
+package snassa01_zpass01.hw5;
 import java.util.Random;
 
 /**

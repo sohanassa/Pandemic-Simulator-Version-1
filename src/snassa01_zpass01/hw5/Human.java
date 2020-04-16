@@ -1,3 +1,4 @@
+package snassa01_zpass01.hw5;
 /**
  * This class created an object called Human.
  * 
