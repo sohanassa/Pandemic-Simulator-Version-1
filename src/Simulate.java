@@ -136,7 +136,7 @@ public class Simulate {
 				if(randomizer.nextDouble()<=movingP)  //move the humans
 					 g.move(i,j);
 			    else
-				     g.StayedInSamePosition(i, j);
+				     g.StayedInSamePosition(i, j); //else inncrease the time stayed in same position
 				
 			}// null check
 			}//loop2
