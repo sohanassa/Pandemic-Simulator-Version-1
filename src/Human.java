@@ -6,10 +6,12 @@
  */
 public class Human {
   private boolean mask;        //has a field named mask that represents whether or not the human is wearing one
+  private int maskProtection;
   
  
-  public Human(boolean mask) { //constructor
+  public Human(boolean mask, int maskProtection) { //constructor
 	  this.mask=mask;
+	  this.maskProtection=maskProtection;
 	  
   }
   
@@ -20,6 +22,14 @@ public class Human {
 public boolean getMask() { 
 	  return this.mask;
   }
+
+/**
+ * Getter for maskProtection 
+ * @return int, value of maskProtection
+ */
+public int getMaskProtection() {
+	return maskProtection;
+}
   
 /**
  *toString method

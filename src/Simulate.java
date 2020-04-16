@@ -14,11 +14,11 @@ public class Simulate {
 	private static int timeForSquareToBeSafe;
 	private static int time;
 	private static int timeForSquareToGetInfected;
-	private static int maskP;
+	private static int maskProtection;
 	private static Random randomizer = new Random();
 	
 	
-	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected, int maskP){
+	public Simulate(int mask, int immune, double humanInf, double spaceInf,double spacetoHuman, double moving, int h, int w, int pop, int timespace, int time, int timespacegettinginfected, int maskProtection){
 		maskUsePers=mask;
 		immunePers=immune;
 		humanInfP=humanInf;
@@ -31,7 +31,7 @@ public class Simulate {
 		timeForSquareToBeSafe=timespace;
 		timeForSquareToGetInfected=timespacegettinginfected;
 		this.time=time;
-		this.maskP=maskP;
+		this.maskProtection=maskProtection;
 	}
 	
 	private Human[] makeHumans() {
@@ -41,10 +41,10 @@ public class Simulate {
 			boolean mask= randomizer.nextInt(101)<=maskUsePers;
 			
 			if(i==0)
-				h[i]=new Sick(mask, humanInfP, humanSpaceP);
+				h[i]=new Sick(mask, humanInfP, humanSpaceP, maskProtection);
 			else {
 				boolean im= randomizer.nextInt(101)<=immunePers;
-				h[i]=new Healthy(im, mask);
+				h[i]=new Healthy(im, mask, maskProtection);
 			}
 		}
 		return h;
@@ -70,7 +70,7 @@ public class Simulate {
     private Human makeSick(Human hu) {
     	Healthy healthy = (Healthy) hu;
     	if(!healthy.getImmune())
-    	   return new Sick(hu.getMask(),humanInfP ,humanSpaceP);
+    	   return new Sick(hu.getMask(),humanInfP ,humanSpaceP, maskProtection);
     	return hu;
     }
     
