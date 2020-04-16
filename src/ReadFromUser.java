@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class ReadFromUser {
 
 	public static void main(String[] args) {
+		System.out.println("COVID-19 SIMULATOR!\n");
+	       System.out.println("*StdDraw Disclaimer*\n1)Green Circle <- Healthy Person\n2)Orange Circle <- Sick Person\n3)Red Square <- Infected Area\n");
 		Scanner in = new Scanner(System.in);
 		String choice="";
 		boolean flag=false;
@@ -65,8 +67,7 @@ public class ReadFromUser {
 	do {                                         // do while loop for re reading in case exception was thrown
 		try {                                    //try for reading all inputs 
 		   error=false;  //for checking if exception was thrown
-	       System.out.println("COVID-19 SIMULATOR!\n");
-	       System.out.println("*StdDraw Disclaimer*\n1)Green Circle <- Healthy Person\n2)Orange Circle <- Sick Person\n3)Red Square <- Infected Area\n");
+	       
 		   System.out.print("Give size of place (height width):");
 		   h=in.nextInt();
 		   w=in.nextInt();
