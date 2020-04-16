@@ -53,12 +53,12 @@ public class Simulate {
 		
 		Human[] h=new Human[population];
 		for(int i=0; i<population; i++) {
-			boolean mask= randomizer.nextInt(101)<=maskUsePers; //to determine if the human will be using mask
+			boolean mask= randomizer.nextInt(100)<maskUsePers; //to determine if the human will be using mask
 			
 			if(i==0) //make the first human sick
 				h[i]=new Sick(mask, humanInfP, humanSpaceP, maskProtection);
 			else {
-				boolean im= randomizer.nextInt(101)<=immunePers;  //to determine if he will be immune
+				boolean im= randomizer.nextInt(100)<immunePers;  //to determine if he will be immune
 				h[i]=new Healthy(im, mask, maskProtection); //create human
 			}
 		}
@@ -148,7 +148,7 @@ public class Simulate {
 						cnt++;    // counts how many people got infected
 					}
 				}
-				if(randomizer.nextDouble()<=movingP)  //move the humans
+				if(randomizer.nextDouble()<movingP)  //move the humans
 					 g.move(i,j);
 			    else
 				     g.StayedInSamePosition(i, j); //else increase the time stayed in same position

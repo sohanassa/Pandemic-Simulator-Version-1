@@ -48,11 +48,6 @@ public class Grid {
 		return human[i][j];
 	}
 	
-	
-//	public Human[][] getHuman2D(){
-//		return human;
-//	}
-	
 	/**
 	 * This method returns the content of the array getInfectedSpaceAt at the given position.
 	 * @param i represents the row
@@ -73,7 +68,7 @@ public class Grid {
 				if(human[i][j]!=null && (human[i][j].getClass()==Sick.class)) { //if the human in that position is Sick
 					//using randomizer,if the possibility is higher then the random number, and the time stayed in same spot is equal or larger than timeNeeded
 					Sick sik = (Sick) human[i][j];  //downcasting
-					if(sik.getPossibilityOfInfectingSpace()>=randomizer.nextDouble() && timeStayedInSamePosition[i][j]>=timeNeeded  )
+					if(sik.getPossibilityOfInfectingSpace()>randomizer.nextDouble() && timeStayedInSamePosition[i][j]>timeNeeded  )
 					 infectedSpace[i][j]=true; //then infect the space
 					 DrawOne(i,j);             //call method DrawOne to visually represent the infected area on our canvas
 				}
@@ -265,6 +260,7 @@ private boolean CheckIfSurrounded(int i,int j) {
 	
 	/**
 	 * This method is used to represents the humans and the infected area on the canvas.
+	 * 
 	 * @param i represents the row 
 	 * @param j represents the column
 	 */
