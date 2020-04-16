@@ -39,6 +39,7 @@ public class ReadFromUser {
 		
 			do {
 				try {
+					flag=false;
 					 System.out.print("Give size of place (height width):");
 					   h=in.nextInt();
 					   w=in.nextInt();
