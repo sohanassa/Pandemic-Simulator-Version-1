@@ -42,7 +42,9 @@ public class Simulate {
 		this.time=time;
 		this.maskProtection=maskProtection;
 	}
-	
+	public Simulate(int h,int w, int pop) {
+		this(20,10,0.8,0.4,0.5,0.6,h,w,pop,4,50,5,20);
+	}
 	/**
 	 * This method creates all the humans in a 1D array.
 	 * Gives them random positions an sets the first human as infected

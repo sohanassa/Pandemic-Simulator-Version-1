@@ -12,9 +12,53 @@ public class ReadFromUser {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		
+		String choice="";
+		boolean flag=false;
+		Simulate s;
+		do {
+			try {
+				flag=false;
+				System.out.println("Would you like a manual simulator?Yes/No");
+				choice=in.next();
+				if(!choice.equalsIgnoreCase("Yes")&&!choice.equalsIgnoreCase("No"))
+					throw new Exception("Must give Yes or No answer");
+			}
+			catch (Exception e) {
+				flag=true;
+				System.out.println(e.getMessage());
+				in.hasNextLine();
+			}
+		}while(flag);
 		int h=0,w=0,people=0,time=0,timeSpace=0,maskPers=0,immunePers=0,timeSpaceInfected=0,maskProtection=0;
 		double movingP=0,infectingP=0,infSpaceP=0,spaceInfHuman=0;
+		
+		if(choice.equalsIgnoreCase("Yes")) {
+			do {
+				try {
+					 System.out.print("Give size of place (height width):");
+					   h=in.nextInt();
+					   w=in.nextInt();
+					if(h<=0||w<=0)
+						 throw new Exception("Width and heigth must be larger than 0");
+					   System.out.println("Give number of people:");
+					   people = in.nextInt();
+					   if(people>(h*w)) //if the people are more than the capacity of out place 
+						   throw new Exception("Number of people must be smaller than space capacity"); //throw exception
+					
+				}
+				catch(Exception e) {
+					flag=true;
+					System.out.println(e.getMessage());
+				}
+				
+			}while(flag);
+			 s= new Simulate(h,w,people);
+		}
+		
+		
+		
+		else {	
+		
 		
 		boolean error=false;
 	do {                                         // do while loop for re reading in case exception was thrown
@@ -98,8 +142,8 @@ public class ReadFromUser {
 		
 	   }while(error);
 		//create an object type Simulate
-	   Simulate s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected,maskProtection);
-	   
+	  s= new Simulate(maskPers,immunePers,infectingP,infSpaceP,spaceInfHuman,movingP,h,w,people,timeSpace,time,timeSpaceInfected,maskProtection);
+		}
 	   s.runSimulation(); //call runSimulation
 	   System.out.println("END OF SIMULATION!");
 	   System.exit(0);
