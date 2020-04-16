@@ -20,7 +20,7 @@ public class ReadFromUser {
 		do {
 			try {
 				flag=false;
-				System.out.println("Would you like a manual simulator?Yes/No");
+				System.out.print("Would you like a manual simulator?Yes/No");
 				choice=in.next();
 				if(!choice.equalsIgnoreCase("Yes")&&!choice.equalsIgnoreCase("No"))
 					throw new Exception("Must give Yes or No answer");
@@ -45,7 +45,7 @@ public class ReadFromUser {
 					   w=in.nextInt();
 					if(h<=0||w<=0)
 						 throw new Exception("Width and heigth must be larger than 0");
-					   System.out.println("Give number of people:");
+					   System.out.print("Give number of people:");
 					   people = in.nextInt();
 					   if(people>(h*w)) //if the people are more than the capacity of out place 
 						   throw new Exception("Number of people must be smaller than space capacity"); //throw exception
