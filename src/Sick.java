@@ -8,8 +8,8 @@ public class Sick extends Human {
 	private double PossibilityToInfect; //represents the Possibility of the sick human to infect others
 	private double PossibilityOfInfectingSpace; //represents the Possibility of the sick human to infecting a space
 	
-	public Sick(boolean mask, double possibilityToInfect, double PossSpace) { //constructor
-		super(mask);
+	public Sick(boolean mask, double possibilityToInfect, double PossSpace, int maskProtection) { //constructor
+		super(mask,maskProtection);
 		PossibilityToInfect=calcPossibility(possibilityToInfect);
 		PossibilityOfInfectingSpace=calcPossibility(PossSpace);
 	}
@@ -21,7 +21,7 @@ public class Sick extends Human {
 	private double calcPossibility(double P) {
 		  if(!getMask())  //if the sick human is  wearing a mask it reduces the possibility 
 			  return P; 
-		  return P/2;
+		  return ((100-getMaskProtection())/100.0)*P;
 	  }
 	/**
 	 *Getter method for PossibilityToInfection.

@@ -9,8 +9,8 @@ public class Healthy extends Human {
   private double PossibilityofInfection;      // represents the possibility of getting infected
   
   
-	public Healthy(boolean immune, boolean mask) {       //constructor
-		super(mask);                                     // calls super constructor
+	public Healthy(boolean immune, boolean mask, int maskProtection) {       //constructor
+		super(mask,maskProtection);                                     // calls super constructor
 		this.immune=immune;
 		this.PossibilityofInfection=calcPossibilityofInfection();
 	}
@@ -23,7 +23,7 @@ public class Healthy extends Human {
 		if(immune)  //if its immune , the possibility of infection is 0
 			return 0;
 		if(getMask())         //if its wearing a mask the possibility is down by half 
-			return 1/2;
+			return (100-getMaskProtection())/100.0;
 		return 1;              
 	}
 	/**
