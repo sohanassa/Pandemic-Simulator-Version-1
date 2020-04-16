@@ -77,6 +77,7 @@ public class ReadFromUser {
 		     if(maskP>100 || maskP<0)// if the possibility is not from 0-100
 				   throw new Exception("percentage must be between 0 and 100!");//throw exception
 		     
+		     
         }
 		
 		catch(InputMismatchException e) {              //catch  InputMismatchException
