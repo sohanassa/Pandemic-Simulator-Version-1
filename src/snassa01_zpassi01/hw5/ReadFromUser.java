@@ -147,6 +147,5 @@ public class ReadFromUser {
 		}
 	   s.runSimulation(); //call runSimulation
 	   System.out.println("END OF SIMULATION!");
-	   System.exit(0);
 	}
 }
