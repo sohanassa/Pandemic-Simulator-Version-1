@@ -1,4 +1,4 @@
-package snassa01_zpass01.hw5;
+package snassa01_zpassi01.hw5;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

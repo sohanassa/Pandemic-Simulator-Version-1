@@ -1,4 +1,4 @@
-package snassa01_zpass01.hw5;
+package snassa01_zpassi01.hw5;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.Color;
@@ -72,13 +72,5 @@ public void DisInfectArea(int i,int j) {
 	
 	StdDraw.setPenColor(StdDraw.WHITE);
 	StdDraw.filledRectangle(i+0.5, j+0.5, 0.4, 0.4);
-}
-
-/**
- * resets the canvas
- */
-public void FillAll() {
-	StdDraw.filledRectangle(0, 0, length, width);
-	DrawGrid();
 }
 }

@@ -1,4 +1,4 @@
-package snassa01_zpass01.hw5;
+package snassa01_zpassi01.hw5;
 /**
  * This class extends Human and created an object called healthy extends human.
  * 
