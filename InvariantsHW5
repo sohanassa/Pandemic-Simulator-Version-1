@@ -1,0 +1,19 @@
+Invariants:
+
+• Height and width of space are never null and are always numbers larger than 0.
+  They are never changed.
+• People is a positive number, that is never null and that is never changed. It must
+  always be smaller than the space capacity.
+• Time is a positive number, that is never null and that is never changed.
+• Timespace is a positive number, that is never changed.
+• maskPer is a positive number between 0 and 100 that is never changed.
+• immunePers is a positive number between 0 and 100 that is never changed.
+• timeSpaceInfected is a positive number, that is never changed.
+• maskProtection is a positive number between 0 and 100 that is never changed.
+• Moving P is a positive number between 0 and 1 that is never changed.
+• InfectingP is a positive number between 0 and 1 that is never changed.
+• InfSpaceP is a positive number between 0 and 1 that is never changed.
+• spaceInfHuman is a positive number between 0 and 1 that is never changed.
+
+
+Made by Zoe Passiadou & Sohaib Nassar HW5 17/4/2020

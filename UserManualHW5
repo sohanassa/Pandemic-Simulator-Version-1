@@ -1,0 +1,33 @@
+Covid-19 Simulator (HomeWork-5 133)
+
+ReadFromUser will let you run the simulation.
+
+You have to give:
+• The size of the area (height width)
+• The population in that area
+
+Then you will be asked if you want to use your own values for the different possibilities and
+variables that are used in the simulation or go with the default ones, answer with "Yes" or "no".
+
+The default values are:
+• Possibility of infecting another person: 0.7/1.0
+• Possibility of infecting a space: 0.6/1.0
+• Possibility of getting infected from a space: 0.4/1.0
+• Possibility of moving in any direction: 0.6/1.0
+• Percentage of people who wear face masks: 20/100
+• Percentage of protection from wearing a face mask: 20/100
+• Percentage of immune people: 10/100
+• Time of simulation in minutes: 60
+• Time needed for a space to become disinfected or safe: 8
+• Time needed for an infected person to stay in same position and infect the space: 3
+
+Or you can enter the above values manually for better customization of your simulation.
+
+Visuals of the simulation:
+• Orange Circle means there is an infected person in the 1x1 meter square.
+• Green Circe means there is a healthy person in the square.
+• Red Square means that the place is infected.
+• White Space meant the space is safe.
+
+
+Made by Sohaib Nassar & Zoe Passiadou 16/4/2020.
