@@ -4,6 +4,7 @@ package snassa01_zpassi01.hw5;
  * 
  * @author Zoe Passidou
  *@author Sohaib Nassar
+ *
  */
 public class Healthy extends Human {
   private boolean immune;                     // represents whether or not a healthy human is immune
